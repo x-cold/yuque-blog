@@ -1,29 +1,30 @@
-# Beidou Advanced Example
+# yuque-blog
 
-> Advanced usage of Beidou framework. More complex usage with `router`, `controller`, `service` and so on.
-> For more detail documents, see <https://github.com/eggjs/egg> which Beidou based on.
+yuque—blog 是一款基于[语雀](http://yuque.com/)内容管理平台的博客系统，用户可以在语雀上进行文档仓库的管理，然后在自定义的站点中展示这些内容
 
-## Install
+## 主要特性
 
-```bash
-$ yarn install
-```
+- 优秀的文档编辑和管理体验（Powered by 语雀）
+- 极速输出博客页面
+- 可定制的博客主题
+- 支持服务端渲染
+- 支持 PWA 及离线访问
+- 便捷的运维体验，提供一键部署的 Docker 镜像
 
-### Start
+## 技术栈
 
-```bash
-$ npm start
-```
+- 后端：Beidou (基于 Egg 和 React 的高性能同构框架)
+- 前端：React / Reach-Router / Mobx / Axios / Mock.js / WorkBox
 
-then navigate to [http://127.0.0.1:6001/](http://127.0.0.1:6001/)
+## TODO
 
-## Basic Usage
-
-* add a new page in /client folder, eg. `/client/test.jsx`
-* start app: `npm start`
-* navigate to [http://127.0.0.1:6001/test](http://127.0.0.1:6001/test)
-
-## [Document](https://github.com/alibaba/beidou)
+- [x] 后端项目初始化
+- [ ] 前端项目初始化
+- [ ] 语雀 API SDK 封装
+- [ ] 接口代理开发
+- [ ] mock 数据准备
+- [ ] 页面开发
+- [ ] PWA 整站离线支持
 
 ## License
 
