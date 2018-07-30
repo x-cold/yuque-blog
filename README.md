@@ -26,6 +26,18 @@ yuque—blog 是一款基于[语雀](http://yuque.com/)内容管理平台的博�
 - [ ] 页面开发
 - [ ] PWA 整站离线支持
 
+## Install
+
+```
+npm install
+```
+
+## Start
+
+```
+npm start
+```
+
 ## License
 
 [MIT](LICENSE)
