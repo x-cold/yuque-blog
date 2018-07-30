@@ -1,0 +1,39 @@
+{
+	"variables": [],
+	"info": {
+		"name": "yuque-blog",
+		"_postman_id": "401a3074-a017-1421-f32f-9590402eba8a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "article",
+			"description": "",
+			"item": [
+				{
+					"name": "获取文章列表",
+					"request": {
+						"url": "http://localhost:6001/api/yuque/ariticles",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取文章详情",
+					"request": {
+						"url": "http://localhost:6001/api/yuque/ariticle/ckby22",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
