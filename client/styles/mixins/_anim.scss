@@ -1,0 +1,19 @@
+@keyframes bounce {
+  $scale: 3;
+  $val: 0 2 3 2 0 -2 -3 -2 0;
+  @each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9 {
+    #{percentage(($i - 1) / 8)} {
+      transform: translateY(($scale * nth($val, $i))+px);
+    }
+  }
+}
+
+@keyframes light-bounce {
+  $scale: 1.5;
+  $val: 0 2 3 2 0 -2 -3 -2 0;
+  @each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9 {
+    #{percentage(($i - 1) / 8)} {
+      transform: translateY(($scale * nth($val, $i))+px);
+    }
+  }
+}

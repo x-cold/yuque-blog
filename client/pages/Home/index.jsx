@@ -1,0 +1,107 @@
+
+import React, { Component, Fragment } from 'react';
+import { observer, inject } from 'mobx-react';
+
+import Loader from '../../widgets/loader';
+import PostCard from '../../widgets/post_card';
+import Header from './child/header';
+import Footer from './child/footer';
+
+import './index.scss';
+
+@inject('appStore')
+@inject('postStore')
+@observer
+export default class HomeContent extends Component {
+  renderPosts(posts) {
+    const { appStore } = this.props;
+    const { ui = {} } = appStore;
+    const containerHeight = ui.windowHeight - 60 - 72;
+    const windowWidth = ui.windowWidth;
+    let showPosts;
+    // 动态控制文章数量
+    if (windowWidth < 1440) {
+      showPosts = posts.slice(0, 4);
+    } else {
+      showPosts = posts.slice(0, 6);
+    }
+    // 动态计算卡片高 (宽等值)
+    const cardHeight = (containerHeight - 32) / 2;
+    // 两行布局
+    const col1 = showPosts.filter((p, index) => index % 2 === 0);
+    const col2 = showPosts.filter((p, index) => index % 2 !== 0);
+    const mapper = post => (<PostCard
+      key={post.slug}
+      post={post}
+      style={{
+        height: cardHeight + 'px',
+        width: cardHeight + 'px',
+      }}
+    />);
+    const cards1 = (<div className="post-row">
+      {
+        col1.map(mapper)
+      }
+    </div>);
+    const cards2 = (<div className="post-row">
+      {
+        col2.map(mapper)
+      }
+    </div>);
+    return (<div
+      className="post-list"
+    >
+      {
+        cards1
+      }
+      {
+        cards2
+      }
+    </div>);
+  }
+
+  render() {
+    const { postStore, appStore } = this.props;
+    const { posts } = postStore;
+    const { ui = {} } = appStore;
+    if (!posts) {
+      return <Loader />;
+    }
+    const total = posts.length || 0;
+    return (
+      <Fragment>
+        <div
+          className="home-container"
+          style={{
+            minHeight: ui.windowHeight - 60 + 'px',
+          }}
+        >
+          <Header />
+          {
+            this.renderPosts(posts)
+          }
+          <div className="read-more">
+            <div className="social-share">
+              <div className="social-item">
+                <img src="https://img.alicdn.com/tfs/TB1fpDuduuSBuNjSsplXXbe8pXa-48-38.png" />
+              </div>
+              <div className="social-item">
+                <img src="https://img.alicdn.com/tfs/TB16h_2dx9YBuNjy0FfXXXIsVXa-46-38.png" />
+              </div>
+            </div>
+            <div className="more-guide">
+              <div className="total">
+                {total > 9 ? total : `0${total}`}
+              </div>
+              <a className="more-link" href="/blogs/">
+                <span>MORE</span>
+                <img src="https://img.alicdn.com/tfs/TB1D1bUdv5TBuNjSspmXXaDRVXa-28-16.png" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </Fragment>
+    );
+  }
+}

@@ -1,0 +1,77 @@
+@import '../../styles/variables/manifest';
+@import '../../styles/mixins/manifest';
+
+.header {
+  background-color: $blue-transparent;
+  @include standard-shadow;
+  overflow: visible;
+  justify-content: space-between;
+  display: flex;
+  height: $header-height-small;
+
+  transition: transform 0.5s, background-color 0.5s;
+  color: $black;
+  z-index: 101;
+
+  @mixin expand {
+    @include bp-w(600px) {
+      @content;
+    }
+  }
+
+  @include expand {
+    height: $header-height;
+  }
+
+  &--transparent {
+    background-color: $blue-invisible;
+    transition: background-color 0.5s;
+    box-shadow: none;
+  }
+
+  &--hidden {
+    transform: translate3d(0, - $header-height-small, 0);
+    transition: transform 0.5s;
+
+    @include expand {
+      transform: translate3d(0, - $header-height, 0);
+    }
+  }
+
+  &__icon {
+    height: 100%;
+    width: 70px;
+    cursor: pointer;
+    padding: 20px;
+    opacity: 0.7;
+    z-index: 103;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: $black;
+    }
+  }
+
+  &__nav {
+    z-index: 100;
+    height: 100%;
+    overflow: visible;
+    float: right;
+    width: auto;
+    float: auto;
+    text-align: right;
+    padding: 0;
+
+    &__item {
+      width: 100px;
+      float: right;
+      height: 100%;
+      padding: 0;
+    }
+  }
+}

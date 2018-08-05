@@ -1,0 +1,84 @@
+@import '../../styles/variables/manifest';
+@import '../../styles/mixins/manifest';
+
+.hero {
+  color: $black;
+
+  &__overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  &__overlay {
+    transition: all 0.5s;
+    background-color: $blue;
+    opacity: 0.6;
+  }
+
+  &__top-bar {
+    width: 100%;
+    position: absolute;
+    top: 25px;
+  }
+
+  &__bottom-bar {
+    width: 100%;
+    position: absolute;
+    bottom: 25px;
+  }
+
+  &__title-bar {
+    display: flex;
+
+    &__content {
+      margin: auto;
+      width: 100%;
+      overflow: hidden;
+      h1 {
+        text-align: center;
+        word-wrap: break-word;
+      }
+      h1,
+      h2 {
+        font-weight: bold;
+      }
+      h1 {
+        font-size: 40px;
+      }
+      h2 {
+        font-size: 32px;
+      }
+      .date {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 20%;
+    left: 25px;
+    font-weight: bold;
+    color: $black;
+    @include font-size(64px);
+
+    @include bp-w(768px) {
+      left: calc(50% - #{768px / 2});
+      font-size: 80px;
+    }
+  }
+
+  .hero-intro {
+    text-align: center;
+  }
+  .hero-tag {
+    padding-right: .5em;
+  }
+  .hero-image {
+    padding-top: 48px;
+  }
+}
+

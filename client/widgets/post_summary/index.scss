@@ -1,0 +1,97 @@
+@import '../../styles/variables/manifest';
+@import '../../styles/mixins/manifest';
+
+.post-summary {
+  display: block;
+  height: auto;
+  transition: width, height .5s;
+  margin-bottom: 30px;
+  @include portrait {
+    margin-bottom: 44px;
+  }
+  .post-main {
+    position: relative;
+    box-sizing: content-box;
+    padding: 0 10px;
+    border-right: 1px solid #eee;
+  }
+  .background-container {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    opacity: 1;
+  }
+  .post-meta {
+    z-index: 1;
+    position: relative;
+    text-align: right;
+    color: rgba(195, 209, 230, .3);
+    .post-index {
+      @include font-size(80px);
+      line-height: 1.1;
+      font-weight: 900;
+    }
+    .post-date,
+    .post-tag {
+      padding: 0 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 15px;
+      @include portrait {
+        padding: 12px 15px;
+      }
+    }
+  }
+  .intro {
+    padding: 20px 10px 0;
+  }
+  .post-title,
+  .post-desc {
+    font-family: 'PT Sans';
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .post-title {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    height: 48px;
+    font-weight: normal;
+    white-space: nowrap;
+    color: black;
+  }
+  .post-desc {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    color: #999;
+    height: 60px;
+    white-space: normal;
+  }
+  &.active {
+    margin-right: 80px;
+    @include portrait {
+      margin-right: 0;
+    }
+    .post-main {
+      border-right: none;
+    }
+    .post-title {
+      white-space: nowrap;
+    }
+    .post-desc {
+      opacity: 1;
+      white-space: normal;
+    }
+  }
+  &.normal {
+    .post-title {
+      white-space: normal;
+    }
+    .post-desc {
+      opacity: 0;
+    }
+  }
+}

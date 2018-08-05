@@ -1,0 +1,35 @@
+@import '../../styles/variables/manifest';
+@import '../../styles/mixins/manifest';
+
+.close-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $header-height-small;
+  height: $header-height-small;
+  padding: ($header-height-small - $icon-size-small) / 2;
+  cursor: pointer;
+
+  @mixin expand {
+    @include bp-w(600px) {
+      @content;
+    }
+  }
+
+  svg {
+    width: $icon-size-small;
+    height: $icon-size-small;
+    fill: $black;
+
+    @include expand {
+      width: $icon-size;
+      height: $icon-size;
+    }
+  }
+
+  @include expand {
+    width: $header-height;
+    height: $header-height;
+    padding: ($header-height - $icon-size) / 2;
+  }
+}

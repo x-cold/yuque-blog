@@ -1,0 +1,62 @@
+@import '../../styles/variables/manifest';
+@import '../../styles/mixins/manifest';
+
+.home-container {
+  // inline-flex 能保证父容器宽度延伸
+  display: inline-flex;
+  align-content: space-between;
+  .post-list {
+    position: relative;
+    // float: left;
+    padding: 40px 0 32px;
+    .post-row {
+      display: flex;
+      &:nth-child(2) {
+        padding-left: 90px;
+        @include portrait {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  .read-more {
+    position: relative;
+    left: -80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .social-share {
+      position: absolute;
+      top: 40px;
+      right: 4px;
+      .social-item {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .more-guide {
+      padding-bottom: 140px;
+      color: #DCDEE3;
+      text-align: center;
+    }
+    .total {
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+    .more-link {
+      display: inline-block;
+      opacity: 1;
+      span {
+        font-family: 'PT Sans';
+        font-size: 20px;
+        color: rgb(195, 209, 230);
+      }
+      img {
+        display: inline-block;
+        width: auto;
+        height: 14px;
+      }
+    }
+  }
+}

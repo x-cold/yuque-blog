@@ -1,0 +1,27 @@
+@import '../../styles/variables/manifest';
+@import '../../styles/mixins/manifest';
+
+.icon-link {
+  $size: 30px;
+  $color: white;
+  margin: auto;
+  display: inline-block;
+  width: $size;
+  height: $size;
+  opacity: 0.7;
+  transition: all 0.3s;
+
+  &:hover {
+    opacity: 1;
+    transition: all 0.3s;
+  }
+
+  svg {
+    position: relative;
+    top: -5px;
+    left: -5px;
+    width: $size;
+    height: $size;
+    fill: $color;
+  }
+}

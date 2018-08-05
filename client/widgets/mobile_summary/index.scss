@@ -1,0 +1,78 @@
+@import '../../styles/variables/manifest';
+@import '../../styles/mixins/manifest';
+
+.mobile-post-box {
+  flex-basis: 100%;
+  position: relative;
+  transition: width, height .5s;
+  margin: 0 12px 40px 0;
+  a {
+    display: block;
+    opacity: 1;
+  }
+  .background-container {
+    position: absolute;
+    width: 100%;
+  }
+  .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32%;
+    width: 100%;
+    margin: 0 auto;
+    bottom: 15px;
+    box-sizing: border-box;
+    position: absolute;
+    overflow: hidden;
+    padding: 0 15px;
+    opacity: 1;
+    @include portrait {
+      transform: translateY(0);
+    }
+  }
+  .intro {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    color: #efefef;
+    .text-container{
+      z-index: 1;
+      padding: 20px;
+      position: relative;
+      transform: translateY(-10px);
+      transition: all 0.25s ease;
+      transition-delay: 0.1s;
+    }
+  }
+  .post-title {
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    line-height: 24px;
+    height: 48px;
+    font-weight: normal;
+  }
+  .post-desc {
+    margin-top: 8px;
+    display: flex;
+    font-size: 14px;
+    line-height: 20px;
+    color: #999;
+    .post-tag,
+    .post-date {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .post-date {
+      padding-left: 24px;
+      font-size: 12px;
+    }
+  }
+}

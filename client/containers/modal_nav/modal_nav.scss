@@ -1,0 +1,66 @@
+@import '../../styles/variables/manifest';
+@import '../../styles/mixins/manifest';
+
+@import './close_button';
+
+.modal-nav {
+  z-index: 102;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: transform .6s;
+  transform: translateX(-100%);
+  background-color: rgb(255, 255, 255);
+
+  &.active {
+    transform: translateX(0);
+  }
+  @mixin expand {
+    @include bp-w(600px) {
+      @content;
+    }
+  }
+
+  @include portrait {
+    display: flex;
+    align-items: center;
+  }
+  .nav-list {
+    position: absolute;
+    padding: 24px;
+    left: 40px;
+    .nav-item {
+      width: 120px;
+      margin-bottom: 36px;
+      @include portrait {
+        margin: 36px auto;
+      }
+    }
+    @include portrait {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &__items {
+    li {
+      margin: 10px 0;
+      text-align: right;
+    }
+  }
+
+  &__item {
+    color: $black;
+    font-size: 1.2rem;
+
+    &--active {
+      opacity: 1;
+    }
+
+    @include expand {
+      font-size: 1.8rem;
+    }
+  }
+}

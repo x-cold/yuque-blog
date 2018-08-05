@@ -1,0 +1,73 @@
+@import '../mixins/manifest';
+
+* {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+p,
+a,
+li {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+p,
+a,
+li {
+  font-size: 1rem;
+
+  @include bp-w(600px) {
+    // font-size: 1.4rem;
+    font-size: 1.2em;
+  }
+
+  code {
+    font-size: 1rem;
+
+    @include bp-w(600px) {
+      // font-size: 1.4rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+code {
+  font-family: 'Courier New';
+  font-size: 1.1rem;
+  padding: 0 4px;
+}
+
+p,
+li {
+  line-height: 1.65;
+}
+
+code {
+  line-height: 1.35;
+}
+
+h1 {
+  // font-size: 2.8rem;
+  font-size: 2.2rem;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  // font-size: 2rem;
+  font-size: 1.7rem;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  // font-size: 1.8rem;
+  font-size: 1.5rem;
+}

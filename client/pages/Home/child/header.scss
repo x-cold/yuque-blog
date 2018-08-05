@@ -1,0 +1,62 @@
+@import '../../../styles/variables/manifest';
+@import '../../../styles/mixins/manifest';
+
+.home-navigator {
+  position: relative;
+  padding: 0 40px 0 80px;
+  width: 480px;
+  .logo {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    width: 360px;
+    img {
+      height: auto;
+    }
+  }
+  .nav-list {
+    margin: 40px 0;
+    .nav-item {
+      width: 120px;
+      margin-bottom: 45px;
+    }
+  }
+}
+
+.nav-list {
+  .nav-item {
+    text-align: center;
+    line-height: 1.2;
+    cursor: pointer;
+    a {
+      opacity: 1;
+      position: relative;
+      color: #000;
+      @include font-size(18px);
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: -17px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 0;
+        height: 0;
+        border-top: 3px solid transparent;
+        border-left: 9px solid #555;
+        border-bottom: 3px solid transparent;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: all .3s;
+      }
+      &:hover,
+      &.active {
+        &::before {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+}

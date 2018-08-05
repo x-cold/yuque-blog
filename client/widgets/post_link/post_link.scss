@@ -1,0 +1,143 @@
+@import '../../styles/variables/manifest';
+@import '../../styles/mixins/manifest';
+
+.post-link {
+  $height: 280px;
+  $margin: 48px;
+  $separator-height: 1px;
+  $separator-width: 75px;
+  display: flex;
+  height: $height;
+  margin: $margin 0;
+  opacity: 0.8;
+  position: relative;
+  box-shadow: none;
+  width: 100%;
+  transition: all 0.75s;
+
+  @mixin expand {
+    @include bp-w(700px) {
+      @content;
+    }
+  }
+
+  @mixin hide-animate {
+    @include expand {
+      @content;
+    }
+  }
+
+  @mixin show-animate {
+    @include expand {
+      .post-link:hover & {
+        @content;
+      }
+    }
+  }
+
+  &:hover {
+    transition: all 0.75s;
+    opacity: 1;
+  }
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &__overlay {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__title,
+  &__subtitle,
+  &__date,
+  &__overlay {
+    transition: all 0.75s;
+  }
+
+  &__title-bar {
+    width: 100%;
+    position: absolute;
+    top: 65px;
+
+    @include expand {
+      top: 75px;
+    }
+  }
+
+  &__title,
+  &__subtitle {
+    position: relative;
+    padding: 0 30px;
+    color: $white;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: bold;
+    @include font-size(24px);
+    margin-bottom: 15px;
+
+    @include expand {
+      @include font-size(38px);
+    }
+
+    @include show-animate {
+      transform: translate3d(0, -10px, 0);
+    }
+  }
+
+  &__subtitle {
+    opacity: 0.8;
+    margin-top: 0;
+    @include font-size(18px);
+
+    @include expand {
+      @include font-size(22px);
+    }
+
+    @include hide-animate {
+      opacity: 0;
+    }
+
+    @include show-animate {
+      opacity: 0.8;
+      transform: translate3d(0, -20px, 0);
+    }
+  }
+
+  &__date {
+    position: absolute;
+    @include font-size(14px);
+    opacity: 0.6;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    color: $white;
+  }
+
+  &:after {
+    width: $separator-width;
+    position: absolute;
+    bottom: - $margin / 2 - $separator-height / 2;
+    left: calc(50% - #{$separator-width / 2});
+    content: '';
+    height: $separator-height;
+    border-radius: $separator-height / 2;
+    margin: auto;
+    background-color: #888;
+  }
+
+  &:last-of-type:after {
+    content: none;
+  }
+}

@@ -1,0 +1,18 @@
+@mixin type-hallo() {
+	font-family: 'Hallo', sans;
+}
+
+@mixin type-palatino() {
+	font-family: Palatino, serif;
+}
+
+// http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+@function calculate-rem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculate-rem($size);
+}

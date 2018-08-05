@@ -1,0 +1,23 @@
+@import '../../../styles/variables/manifest';
+@import '../../../styles/mixins/manifest';
+
+.home-footer {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  .copyright {
+    padding: 12px 32px;
+    @include portrait {
+      padding: 4px 12px;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+      color: #999;
+      font-size: 12px;
+      text-align: right;
+      font-family: 'PT Sans';
+    }
+  }
+}

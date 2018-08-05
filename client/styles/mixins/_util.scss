@@ -1,0 +1,13 @@
+@mixin opaque-on-hover($opacity) {
+  opacity: $opacity;
+  transition: 0.5s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+}
+
+@mixin standard-shadow {
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.6);
+}

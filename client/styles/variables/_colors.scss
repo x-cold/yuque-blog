@@ -1,0 +1,13 @@
+$blue: #041E2B;
+$blue-transparent: transparentize($blue, 0.1);
+$blue-invisible: transparentize($blue, 1);
+$white: #FFFFFF;
+$purple: #3B2863;
+$purple-light-transparent: transparentize($purple, 0.9);
+$black: #000000;
+
+$color-palette: (#2F6690, #3A7CA5, #B3B9AD, #16425B, #81C3D7, #537D99, #9A9B58, #395E66, #DBD56E, #B3B9AD);
+
+@function get-palette($index: 1) {
+  @return nth($color-palette, $index);
+}
