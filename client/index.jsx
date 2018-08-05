@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import IndexRouter from './router';
+import IndexRouter from './common/router';
 import './pages/Home/index.scss';
 
 export default class Index extends Component {
@@ -34,7 +34,7 @@ export default class Index extends Component {
       <html>
         <head>
           <title>Yuque Blog</title>
-          <link rel="stylesheet" href={helper.asset('manifest.css')} />
+          <link rel="stylesheet" href={helper.asset('index.css')} />
         </head>
         <body>
           <div id="container" dangerouslySetInnerHTML={{ __html: html }} />
@@ -62,8 +62,8 @@ if (__CLIENT__) {
   );
 
   if (module.hot) {
-    module.hot.accept('./router', () => {
-      const NewIndexRouter = require('./router').default;
+    module.hot.accept('./common/router', () => {
+      const NewIndexRouter = require('./common/router').default;
       ReactDOM.render(
         <NewIndexRouter />,
         document.getElementById('container')
