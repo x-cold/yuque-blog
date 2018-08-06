@@ -33,6 +33,19 @@ yuque—blog 是一款基于[语雀](http://yuque.com/)内容管理平台的博�
 npm install
 ```
 
+## Dev
+
+```
+npm run dev
+```
+
+## Preview
+
+```
+# to support pwa
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --user-data-dir --unsafety-treat-insecure-origin-as-secure
+```
+
 ## Start
 
 ```

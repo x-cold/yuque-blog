@@ -45,6 +45,18 @@ export default class Index extends Component {
           />
           <script src={helper.asset('manifest.js')} />
           <script src={helper.asset('index.js')} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              // Check that service workers are registered
+              if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                  navigator.serviceWorker.register('/build/service-worker.js');
+                });
+              }`,
+            }}
+          />
         </body>
       </html>
     );
