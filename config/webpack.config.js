@@ -16,8 +16,16 @@ module.exports = (app, defaultConfig) => {
   }
   defaultConfig.plugins.push(
     new WorkboxPlugin.GenerateSW({
+      cacheId: 'webpack-pwa', // 设置前缀
+      skipWaiting: true, // 强制等待中的 Service Worker 被激活
+      clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
       // Exclude images from the precache
       exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+      templatedUrls: {
+        '/': '/',
+      },
+      directoryIndex: '/',
+      // navigateFallback: '/',
       // Define runtime caching rules.
       runtimeCaching: [{
         // Match any request ends with .png, .jpg, .jpeg or .svg.
@@ -32,7 +40,7 @@ module.exports = (app, defaultConfig) => {
 
           // Only cache 10 images.
           expiration: {
-            maxEntries: 10,
+            maxEntries: 100,
           },
         },
       }, {

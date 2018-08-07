@@ -4,6 +4,9 @@ const path = require('path');
 
 module.exports = {
   keys: 'key',
+  static: {
+    maxAge: 0,
+  },
   isomorphic: {
     babel: {
       plugins: [require.resolve('babel-plugin-transform-decorators-legacy')],
