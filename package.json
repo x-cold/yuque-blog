@@ -26,6 +26,7 @@
     "beidou-cli": "^1.0.5",
     "beidou-core": "^1.0.4",
     "domready": "^1.0.8",
+    "marked": "^0.4.0",
     "mobx": "^5.0.3",
     "mobx-devtools": "^0.9.18",
     "mobx-react": "^5.2.3",
