@@ -8,6 +8,8 @@ import DevTool from 'mobx-react-devtools';
 import AppStore from '../stores/app';
 import PostStore from '../stores/post';
 import Home from '../pages/Home';
+import Post from '../pages/Post';
+// import List from '../pages/List';
 import '../styles/site.scss';
 
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;
@@ -26,7 +28,11 @@ export default props => (
     <DevTool />
     <Provider appStore={appStore} postStore={props.store || postStore} >
       <Router context={props.context}>
-        <Route exact path="/" component={Home} />
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/post/:slug" component={Post} />
+          {/* <Route exact path="/list" component={List} /> */}
+        </div>
       </Router>
     </Provider>
   </section>
