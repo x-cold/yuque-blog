@@ -9,7 +9,8 @@ import AppStore from '../stores/app';
 import PostStore from '../stores/post';
 import Home from '../pages/Home';
 import Post from '../pages/Post';
-// import List from '../pages/List';
+import Blog from '../pages/Blog';
+import About from '../pages/About'
 import '../styles/site.scss';
 
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;
@@ -27,13 +28,14 @@ export default props => (
   <section>
     <DevTool />
     <Provider appStore={appStore} postStore={props.store || postStore} >
-      <Router context={props.context}>
-        <Switch>
-          <Route path="/post/:slug" component={Post} />
-          <Route exact path="/" component={Home} />
-          {/* <Route exact path="/list" component={List} /> */}
-        </Switch>
-      </Router>
+        <Router context={props.context}>
+            <Switch>
+              <Route  exact path="/" component={Home} />
+              <Route  exact path="/post/:slug" component={Post} />
+              <Route  exact path="/blogs/" component={Blog} />
+              <Route  exact path="/about/" component={About} />
+            </Switch>
+        </Router>
     </Provider>
   </section>
 );

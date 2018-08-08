@@ -1,0 +1,70 @@
+@import '../../styles/variables/manifest';
+@import '../../styles/mixins/manifest';
+
+.common-page {
+  .about-us {
+    overflow: hidden;
+    position: relative;
+    padding: 0 30px;
+    transform-style: preserve-3d;
+    @include portrait {
+      padding: 0;
+    }
+    .introduction {
+      position: fixed;
+      z-index: 1;
+      padding-left: 140px;
+      left: 0;
+      top: 100px;
+      width: 480px;
+      @include portrait {
+        padding-left: 80px;
+        padding-right: 16px;
+        width: 320px;
+        top: 70px;
+      }
+      .logo {
+        height: 67px;
+        @include portrait {
+          height: 50px;
+        }
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+      .desc {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #333;
+        @include portrait {
+          margin-top: 16px;
+        }
+      }
+    }
+    .show-board {
+      img {
+        width: auto;
+        // height: 560px;
+      }
+    }
+    .show-board-1 {
+      z-index: -2;
+    }
+    .show-board-2 {
+      z-index: -3;
+    }
+    .show-board-3 {
+      z-index: -4;
+    }
+    .show-board-4 {
+      z-index: -5;
+    }
+    .show-board-5 {
+      z-index: -6;
+    }
+  }
+  .parallax-box {
+    margin-top: 90px;
+  }
+}

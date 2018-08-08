@@ -25,7 +25,7 @@ export default class Card extends Component {
 
   getSummary() {
     const { post } = this.props;
-    const { url, tags = [], feature_image, title, updated_at } = post;
+    const { slug, tags = [], feature_image, title, updated_at } = post;
     const tagName = tags[0] && tags[0].name || '-';
     const date = new Date(updated_at)
       .toDateString()
@@ -34,7 +34,7 @@ export default class Card extends Component {
     div.innerHTML = post.html;
     const desc = div.innerText.substr(0, 120);
     return {
-      url,
+      slug,
       tagName,
       date,
       feature_image,
@@ -52,9 +52,9 @@ export default class Card extends Component {
     let { index } = this.props;
     index = index > 8 ? index + 1 : `0${index + 1}`;
 
-    const { url, title, feature_image, date, tagName, desc } = this.getSummary();
+    const { slug, title, feature_image, date, tagName, desc } = this.getSummary();
     const rectStyle = this.getReact();
-
+    let url = '/post/'+slug;
     let className = this.props.className;
     if (!Array.isArray(className)) {
       className = [className];
@@ -90,9 +90,9 @@ export default class Card extends Component {
         </div>
         <div className="intro" style={{ width: rectStyle.width }}>
           <h2 className="post-title">{title}</h2>
-          <div className="post-desc">
+          {/* <div className="post-desc">
             { desc }
-          </div>
+          </div> */}
         </div>
       </div>
     );
