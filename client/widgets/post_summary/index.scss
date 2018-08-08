@@ -4,7 +4,7 @@
 .post-summary {
   display: block;
   height: auto;
-  transition: width, height .5s;
+  transition: width, height 0.5s;
   margin-bottom: 30px;
   @include portrait {
     margin-bottom: 44px;
@@ -25,7 +25,7 @@
     z-index: 1;
     position: relative;
     text-align: right;
-    color: rgba(195, 209, 230, .3);
+    color: rgba(195, 209, 230, 0.3);
     .post-index {
       @include font-size(80px);
       line-height: 1.1;

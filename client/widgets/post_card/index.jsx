@@ -8,8 +8,8 @@ export default class Card extends Component {
     if (!post) {
       return null;
     }
-    const { slug , tags = [], title, updated_at } = post;
-    const url = '/post/'+slug;
+    const { slug, tags = [], title, updated_at } = post;
+    const url = `/post/${slug}`;
     const tagName = tags[0] && tags[0].name || '-';
     const date = new Date(updated_at).toDateString();
     return (

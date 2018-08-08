@@ -128,7 +128,7 @@
   &:after {
     width: $separator-width;
     position: absolute;
-    bottom: - $margin / 2 - $separator-height / 2;
+    bottom: -$margin / 2 - $separator-height / 2;
     left: calc(50% - #{$separator-width / 2});
     content: '';
     height: $separator-height;

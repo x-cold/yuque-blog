@@ -1,27 +1,25 @@
-import React, {Component} from 'react';
-import { browserHistory } from 'react-router';
+import React, { Component } from 'react';
 
 import './index.scss';
 
 export default class Card extends Component {
-
   getReact() {
     const { cardHeight, active } = this.props;
     if (window.isMobile) {
       return {
-        height: cardHeight + 'px',
-        width: cardHeight + 'px',
-      }
+        height: `${cardHeight}px`,
+        width: `${cardHeight}px`,
+      };
     }
     if (active) {
       return {
-        height: cardHeight * 1.7 + 'px',
-        width: cardHeight * 1.7 + 'px',
-      }
+        height: `${cardHeight * 1.7}px`,
+        width: `${cardHeight * 1.7}px`,
+      };
     }
     return {
-      height: cardHeight + 'px',
-      width: cardHeight + 'px',
+      height: `${cardHeight}px`,
+      width: `${cardHeight}px`,
     };
   }
 
@@ -50,7 +48,7 @@ export default class Card extends Component {
     if (!post) {
       return null;
     }
-  
+
     let { index } = this.props;
     index = index > 8 ? index + 1 : `0${index + 1}`;
 
@@ -59,7 +57,7 @@ export default class Card extends Component {
 
     let className = this.props.className;
     if (!Array.isArray(className)) {
-      className = [ className ];
+      className = [className];
     }
     if (active && !window.isMobile) {
       className.push('active');
@@ -72,9 +70,9 @@ export default class Card extends Component {
     const mainHeight = cardHeight * (window.isMobile ? 1.3 : 1.7);
     return (
       <div
-        className={[ 'post-summary', ...className ].join(' ')}
+        className={['post-summary', ...className].join(' ')}
       >
-        <div className="post-main" style={{ width: rectStyle.width, height: mainHeight + 'px' }}>
+        <div className="post-main" style={{ width: rectStyle.width, height: `${mainHeight}px` }}>
           <div className="post-meta">
             <div className="post-index">
               { index }
@@ -86,8 +84,8 @@ export default class Card extends Component {
               { tagName }
             </div>
           </div>
-          <a href={url} className="background-container" style={ rectStyle }>
-            <div className="background-inner" style={feature_image && {  backgroundImage: `url(${feature_image})` } || {} }></div>
+          <a href={url} className="background-container" style={rectStyle}>
+            <div className="background-inner" style={feature_image && { backgroundImage: `url(${feature_image})` } || {}} />
           </a>
         </div>
         <div className="intro" style={{ width: rectStyle.width }}>

@@ -1,29 +1,15 @@
-import React, {Component} from 'react';
-import {findDOMNode} from 'react-dom';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import * as components from '../components/index.js';
 
 import HScroll from '../widgets/hscroll/index.jsx';
 import getRoute from '../routes/router.js';
 import Header from './header/header.jsx';
-import Footer from './footer/footer.jsx';
-import {setScroll} from '../actions/ui.js';
 
 class Layout extends Component {
-  constructor(props) {
-    super(props);
-    this.updateScrollTop = this.updateScrollTop.bind(this);
-  }
-
-  updateScrollTop(e) {
-    const node = findDOMNode(this);
-    const scrollDirection = (this.props.ui.scrollTop > node.scrollTop) ? 'up' : 'down';
-    this.props.dispatch(setScroll(node.scrollTop, scrollDirection));
-  }
-
   componentDidUpdate() {
-    
+
   }
 
   componentDidMount() {
@@ -31,8 +17,8 @@ class Layout extends Component {
   }
 
   renderRouteComponent() {
-    const {url} = this.props;
-    const {componentName, mobileComponentName, props, routeParams} = getRoute(url);
+    const { url } = this.props;
+    const { componentName, mobileComponentName, props, routeParams } = getRoute(url);
     let Comp = components[componentName];
     if (window.isMobile && mobileComponentName) {
       Comp = components[mobileComponentName];
@@ -48,24 +34,24 @@ class Layout extends Component {
   }
 
   render() {
-    const {url} = this.props;
-    const {props = {}} = getRoute(url);
-    const {hideHeader, hideCard} = props;
+    const { url } = this.props;
+    const { props = {} } = getRoute(url);
+    const { hideHeader, hideCard } = props;
     // 博客详情页
     if (hideCard) {
-      return <div className="wrapper full-layout-wrapper">
+      return (<div className="wrapper full-layout-wrapper">
         {
           this.renderRouteComponent()
         }
-      </div>;
+      </div>);
     }
     // 主页
     if (hideHeader && !window.isMobile) {
-      return <HScroll
+      return (<HScroll
         className="wrapper horizontal-wrapper home-wrapper"
       >
         {this.renderRouteComponent()}
-      </HScroll>;
+      </HScroll>);
     }
     // 博客列表、关于我们、招聘
     return (
@@ -83,5 +69,5 @@ class Layout extends Component {
 export default connect(state => ({
   ui: state.ui,
   url: state.url,
-  post: state.post
+  post: state.post,
 }))(Layout);

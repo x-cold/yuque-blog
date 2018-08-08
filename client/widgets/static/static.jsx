@@ -10,8 +10,8 @@ export default function Static(props) {
   }
   return (
     <div
-      className='static'
-      dangerouslySetInnerHTML={{__html: html || marked(markdown)}}
+      className="static"
+      dangerouslySetInnerHTML={{ __html: html || marked(markdown) }}
     />
   );
 }

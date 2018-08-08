@@ -7,17 +7,17 @@
   display: block;
   box-sizing: border-box;
   margin: 4px;
-  transition: width, height .5s;
+  transition: width, height 0.5s;
   opacity: 1;
   .background-container {
     position: absolute;
     width: 100%;
   }
   &:hover {
-    .intro .intro-container{
+    .intro .intro-container {
       transform: translateX(-20%) skewX(-45deg);
     }
-    .intro .text-container{
+    .intro .text-container {
       transform: translateY(0px);
       opacity: 1;
     }
@@ -45,20 +45,20 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    
-    .intro-container{
+
+    .intro-container {
       transform: translateX(-120%) skewX(-45deg);
       background: rgba(0, 0, 0, 1);
       transition: transform 0.55s ease;
       height: 100%;
       width: 200%;
       position: absolute;
-      top:0px;
-      left:0px;
+      top: 0px;
+      left: 0px;
     }
     margin: 0 auto;
     color: #efefef;
-    .text-container{
+    .text-container {
       z-index: 1;
       padding: 20px;
       opacity: 0;

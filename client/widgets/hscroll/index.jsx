@@ -21,14 +21,12 @@ class HScroll extends React.Component {
     const { children, data } = this.props;
     return (
       <div
-        className={ this.props.className }
-        style={ this.props.style }
+        className={this.props.className}
+        style={this.props.style}
         ref={(e) => { this.container = e; }}
         {...data}
       >
-        {React.Children.map(this.props.children, (element, idx) => {
-          return React.cloneElement(element, { ref: idx });
-        })}
+        {React.Children.map(this.props.children, (element, idx) => React.cloneElement(element, { ref: idx }))}
       </div>
     );
   }

@@ -37,9 +37,9 @@
 }
 
 @for $i from 1 through 10 {
-	.bg-c-#{$i} {
-		background-color: get-palette($i);
-	}
+  .bg-c-#{$i} {
+    background-color: get-palette($i);
+  }
 }
 
 .text-hide {

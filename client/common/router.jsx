@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import { BrowserRouter, StaticRouter, Route } from 'react-router-dom';
+import { BrowserRouter, StaticRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import DevTool from 'mobx-react-devtools';
 
@@ -28,11 +28,11 @@ export default props => (
     <DevTool />
     <Provider appStore={appStore} postStore={props.store || postStore} >
       <Router context={props.context}>
-        <div>
+        <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/post/:slug" component={Post} />
+          <Route path="/post/:slug" component={Post} />
           {/* <Route exact path="/list" component={List} /> */}
-        </div>
+        </Switch>
       </Router>
     </Provider>
   </section>

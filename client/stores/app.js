@@ -2,7 +2,8 @@ import { observable } from 'mobx';
 import domReady from 'domready';
 
 export default class AppStore {
-  @observable ui = {};
+  @observable
+  ui = {};
 
   setUI() {
     this.ui.windowWidth = window.innerWidth;

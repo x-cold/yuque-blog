@@ -6,9 +6,9 @@ import * as icons from '../icons/icons.jsx';
 export default function IconLink(props) {
   return (
     <a
-      className='icon-link'
+      className="icon-link"
       href={props.url}
-      style={{width: '20px', 'height': '20px'}}
+      style={{ width: '20px', height: '20px' }}
     >
       {React.createElement(icons[props.name])}
     </a>

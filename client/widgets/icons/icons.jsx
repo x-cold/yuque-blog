@@ -5,7 +5,7 @@ import Snap from 'snapsvg';
 import svgIconConfig from './svgicon_config';
 import svgIcon from './svgicon';
 
-export function Falafel(props) {
+export function Falafel() {
   const height = 8;
   const spacing = 24;
   const startY = (100 - (2 * spacing + 3 * height)) / 2;
@@ -26,19 +26,27 @@ export function Falafel(props) {
   );
 }
 
-export function Close(props) {
+export function Close() {
   return (
     <svg viewBox="0 0 100 100">
-      <line x1="6" y1="94"
-        x2="94" y2="6"
+      <line
+        x1="6"
+        y1="94"
+        x2="94"
+        y2="6"
         stroke="black"
-        strokeWidth="8" />
-      <line x1="6" y1="6"
-        x2="94" y2="94"
+        strokeWidth="8"
+      />
+      <line
+        x1="6"
+        y1="6"
+        x2="94"
+        y2="94"
         stroke="black"
-        strokeWidth="8" />
+        strokeWidth="8"
+      />
     </svg>
-  )
+  );
 }
 
 export class HamburgerCross extends Component {
@@ -51,7 +59,7 @@ export class HamburgerCross extends Component {
   componentDidMount() {
     const container = ReactDOM.findDOMNode(this.container);
     this.singleHamburgerCross = new svgIcon(container, svgIconConfig, {
-      easing: mina.ease, speed: 300
+      easing: mina.ease, speed: 300,
     });
   }
 
@@ -64,8 +72,7 @@ export class HamburgerCross extends Component {
       <span
         data-icon-name="hamburgerCross"
         ref={(e) => { this.container = e; }}
-      >
-      </span>
+      />
     );
   }
 }

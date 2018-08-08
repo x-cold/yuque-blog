@@ -18,7 +18,7 @@ function horwheel(node, cb) {
   if (!node) {
     return false;
   }
-  const fn = function(e) {
+  const fn = function (e) {
     let result;
     if (typeof cb === 'function') {
       result = cb(e);
@@ -27,12 +27,12 @@ function horwheel(node, cb) {
       return;
     }
     horizontalWheel.bind(node)(e);
-  }
+  };
   node.addEventListener('wheel', fn, false);
   return {
-    remove: function() {
+    remove() {
       node.removeEventListener('wheel', fn);
-    }
+    },
   };
 }
 

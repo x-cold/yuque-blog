@@ -1,22 +1,15 @@
-import React, {Component} from 'react';
-import {animatedScrollTo} from '../../effects/scroll';
-import {formatDate} from '../../utilities/format';
+import React, { Component } from 'react';
+import { formatDate } from '../../utils/format';
 
 import './hero.scss';
 
 class Hero extends Component {
-
-  constructor(props) {
-    super(props);
-    this.scroll = this.scroll.bind(this);
-  }
-
   render() {
-    const { title,updated_at } = this.props;
+    const { title, updated_at } = this.props;
     return (
-      <div className='static hero'>
-        <div className='hero__title-bar'>
-          <div className='hero__title-bar__content'>
+      <div className="static hero">
+        <div className="hero__title-bar">
+          <div className="hero__title-bar__content">
             <h1>{title}</h1>
             <div className="hero-intro">
               {/* <span className="hero-tag">{ primary_tag && primary_tag.name || '未分类' }</span> */}
@@ -38,16 +31,6 @@ class Hero extends Component {
     //   </div>
     // )
   }
-
-  // componentDidMount() {
-  //   const node = document.getElementsByClassName('wrapper')[0];
-  //   node.scrollTop = 0;
-  // }
-
-
-  scroll() {
-    animatedScrollTo(this.props.ui.windowHeight - 70);
-  }
 }
 
-export default Hero
+export default Hero;

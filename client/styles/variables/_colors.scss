@@ -1,12 +1,23 @@
-$blue: #041E2B;
+$blue: #041e2b;
 $blue-transparent: transparentize($blue, 0.1);
 $blue-invisible: transparentize($blue, 1);
-$white: #FFFFFF;
-$purple: #3B2863;
+$white: #ffffff;
+$purple: #3b2863;
 $purple-light-transparent: transparentize($purple, 0.9);
 $black: #000000;
 
-$color-palette: (#2F6690, #3A7CA5, #B3B9AD, #16425B, #81C3D7, #537D99, #9A9B58, #395E66, #DBD56E, #B3B9AD);
+$color-palette: (
+  #2f6690,
+  #3a7ca5,
+  #b3b9ad,
+  #16425b,
+  #81c3d7,
+  #537d99,
+  #9a9b58,
+  #395e66,
+  #dbd56e,
+  #b3b9ad
+);
 
 @function get-palette($index: 1) {
   @return nth($color-palette, $index);

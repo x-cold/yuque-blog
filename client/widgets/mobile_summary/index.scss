@@ -4,7 +4,7 @@
 .mobile-post-box {
   flex-basis: 100%;
   position: relative;
-  transition: width, height .5s;
+  transition: width, height 0.5s;
   margin: 0 12px 40px 0;
   a {
     display: block;
@@ -39,7 +39,7 @@
     height: 100%;
     background: rgba(0, 0, 0, 1);
     color: #efefef;
-    .text-container{
+    .text-container {
       z-index: 1;
       padding: 20px;
       position: relative;

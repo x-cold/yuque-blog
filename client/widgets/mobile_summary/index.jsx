@@ -11,15 +11,15 @@ export default class Card extends Component {
     const { url, tags = [], feature_image, title, updated_at } = post;
     const tagName = tags[0] && tags[0].name || '-';
     const date = new Date(updated_at).toDateString();
-    const style = { width: cardHeight + 'px', height: cardHeight + 'px'};
+    const style = { width: `${cardHeight}px`, height: `${cardHeight}px` };
     return (
-      <div class="mobile-post-box">
+      <div className="mobile-post-box">
         <a
           href={url}
           style={style}
         >
           <div className="background-container">
-            <div className="background-inner" style={feature_image && { backgroundImage: `url(${feature_image})` } || {}}></div>
+            <div className="background-inner" style={feature_image && { backgroundImage: `url(${feature_image})` } || {}} />
           </div>
           <div className="overlay">
             <div className="intro">

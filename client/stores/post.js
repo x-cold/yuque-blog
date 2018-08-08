@@ -1,7 +1,8 @@
 import { observable } from 'mobx';
 
 export default class PostStore {
-  @observable posts = [];
+  @observable
+  posts = [];
 
   toJS() {
     return this.posts;

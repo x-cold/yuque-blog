@@ -34,8 +34,8 @@ export default class HomeContent extends Component {
       key={post.slug}
       post={post}
       style={{
-        height: cardHeight + 'px',
-        width: cardHeight + 'px',
+        height: `${cardHeight}px`,
+        width: `${cardHeight}px`,
       }}
     />);
     const cards1 = (<div className="post-row">
@@ -73,7 +73,7 @@ export default class HomeContent extends Component {
         <div
           className="home-container"
           style={{
-            minHeight: ui.windowHeight - 60 + 'px',
+            minHeight: `${ui.windowHeight - 60}px`,
           }}
         >
           <Header />

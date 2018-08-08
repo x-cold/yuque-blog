@@ -1,11 +1,10 @@
 import React from 'react';
 
-import {links} from '../../info.json';
+import { links } from '../../info.json';
 
 import './footer.scss';
 
 export default class Footer extends React.Component {
-
   renderLinks() {
     if (!this.props.showLinks) {
       return null;
@@ -15,11 +14,11 @@ export default class Footer extends React.Component {
 
   render() {
     return (
-      <footer className='footer'>
-        <div className='copyright'>
+      <footer className="footer">
+        <div className="copyright">
           <p>Copyright © 1999 - 2017 Alibaba Inc. All Rights Reserved.</p>
         </div>
-        <div className='link-list'>
+        <div className="link-list">
           {
             this.renderLinks()
           }

@@ -1,79 +1,44 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
+import { getDetail } from '../../services/yuque';
 
 import Static from '../../widgets/static/static';
 import Loader from '../../widgets/loader';
-import { getDetail } from '../../util/axios'
 import Hero from '../../widgets/hero/hero';
-import Footer from '../../containers/footer/footer';
-//import PostContainer from '../../containers/post_container';
-// import fetchGhost from '../../utilities/fetch_ghost';
 
 import './index.scss';
 
-class Post extends Component {
+export default class Post extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      posts: [],
-      post: {}
+      post: {},
     };
   }
 
   componentDidMount() {
-    //this.fetchPosts();
-    this.fetchPost()
+    this.fetchPost();
   }
 
-  // componentDidUpdate() {
-  //   //this.fetchPosts();
-  //   this.fetchPost()
-  // }
-
-  // 拉取推荐的文章列表
-  // fetchPosts() {
-  //   const {post} = this.props;
-  //   if (!post) {
-  //     return;
-  //   }
-  //   const tagName = post.primary_tag && post.primary_tag.name || '';
-  //   const query = {
-  //     'limit': 4,
-  //     // 'fields': 'title,url,image'
-  //   };
-  //   if (tagName) {
-  //     query.filter = `tag:${tagName}`;
-  //   }
-  //   fetchGhost('posts', query).then(posts => {
-  //     if (!Array.isArray(posts)) {
-  //       return;
-  //     }
-  //     this.setState({
-  //       posts,
-  //     });
-  //   });
-  // }
-
-  fetchPost (){
+  fetchPost() {
     const { match } = this.props;
-    let slug = match.params.slug;
-    getDetail(slug).then(res=> {
-      this.setState( { post: res })
-    })
-
+    const slug = match.params.slug;
+    getDetail(slug).then((res) => {
+      this.setState({ post: res });
+    });
   }
 
   render() {
-    const {posts , post } = this.state;
-    console.log(post)
+    const { post } = this.state;
     if (!post) {
       return <Loader />;
     }
-    const {body_html} = post;
-    let style = {};
+    const { body_html } = post;
+    const style = {};
     if (window.isMobile) {
-      const {ui} = this.props;
+      const { ui } = this.props;
       const windowWidth = ui.windowWidth;
-      style.width = windowWidth / 2 - 20 + 'px';
+      style.width = `${windowWidth / 2 - 20}px`;
       style.height = style.width;
     }
     return (
@@ -106,8 +71,4 @@ class Post extends Component {
       </div>
     );
   }
-}
-
-export default function (props){
-    return <Post {...props} />
 }

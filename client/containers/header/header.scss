@@ -30,11 +30,11 @@
   }
 
   &--hidden {
-    transform: translate3d(0, - $header-height-small, 0);
+    transform: translate3d(0, -$header-height-small, 0);
     transition: transform 0.5s;
 
     @include expand {
-      transform: translate3d(0, - $header-height, 0);
+      transform: translate3d(0, -$header-height, 0);
     }
   }
 
