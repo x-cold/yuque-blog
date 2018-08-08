@@ -1,5 +1,5 @@
 
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 
 import Loader from '../../widgets/loader';
@@ -69,7 +69,7 @@ export default class HomeContent extends Component {
     }
     const total = posts.length || 0;
     return (
-      <Fragment>
+      <section>
         <div
           className="home-container"
           style={{
@@ -101,7 +101,7 @@ export default class HomeContent extends Component {
           </div>
         </div>
         <Footer />
-      </Fragment>
+      </section>
     );
   }
 }

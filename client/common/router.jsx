@@ -29,8 +29,8 @@ export default props => (
     <Provider appStore={appStore} postStore={props.store || postStore} >
       <Router context={props.context}>
         <Switch>
-          <Route exact path="/" component={Home} />
           <Route path="/post/:slug" component={Post} />
+          <Route exact path="/" component={Home} />
           {/* <Route exact path="/list" component={List} /> */}
         </Switch>
       </Router>

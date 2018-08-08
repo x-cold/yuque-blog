@@ -42,7 +42,7 @@ export default class Post extends Component {
       style.height = style.width;
     }
     return (
-      <div className="post">
+      <section className="post">
         <Hero
           {...post}
         />
@@ -68,7 +68,7 @@ export default class Post extends Component {
           </div>
         </div> */}
         {/* <Footer showLinks={true}></Footer> */}
-      </div>
+      </section>
     );
   }
 }
