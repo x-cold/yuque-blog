@@ -54,7 +54,7 @@ export default class Card extends Component {
 
     const { slug, title, feature_image, date, tagName, desc } = this.getSummary();
     const rectStyle = this.getReact();
-    let url = '/post/'+slug;
+    const url = `/post/${slug}`;
     let className = this.props.className;
     if (!Array.isArray(className)) {
       className = [className];
