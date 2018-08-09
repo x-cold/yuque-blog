@@ -20,12 +20,14 @@ yuque—blog 是一款基于[语雀](http://yuque.com/)内容管理平台的博�
 
 - [x] 后端项目初始化
 - [x] 前端项目初始化
-- [ ] ~~语雀 API SDK 封装~~
 - [x] 语雀仓库相关开放 API 服务
+- [ ] 单元测试
 - [x] 接口代理开发
 - [x] mock 数据准备
+- [x] PWA 整站离线支持
 - [ ] 页面开发
-- [ ] PWA 整站离线支持
+- [ ] 内容可配置
+- [ ] 主题可定制
 
 ## Install
 
@@ -39,11 +41,10 @@ npm install
 npm run dev
 ```
 
-## Preview
+## Buld
 
 ```
-# to support pwa
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --user-data-dir --unsafety-treat-insecure-origin-as-secure
+npm run build
 ```
 
 ## Start
