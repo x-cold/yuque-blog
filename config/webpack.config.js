@@ -49,5 +49,9 @@ module.exports = (app, defaultConfig) => {
       }],
     })
   );
+
+  defaultConfig.externals = {
+    Snap: 'Snap',
+  };
   return defaultConfig;
 };

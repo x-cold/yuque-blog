@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Snap from 'snapsvg';
 
 import svgIconConfig from './svgicon_config';
 import svgIcon from './svgicon';
+
+const mina = window.mina || {};
 
 export function Falafel() {
   const height = 8;

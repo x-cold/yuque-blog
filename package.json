@@ -31,6 +31,7 @@
     "babel-polyfill": "^6.26.0",
     "beidou-cli": "^1.0.5",
     "beidou-core": "^1.0.4",
+    "classnames": "^2.2.6",
     "domready": "^1.0.8",
     "marked": "^0.4.0",
     "mobx": "^5.0.3",
@@ -42,7 +43,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "snapsvg": "^0.5.1"
   },
   "engines": {
     "node": ">= 8.0.0"

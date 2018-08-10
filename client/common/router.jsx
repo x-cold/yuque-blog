@@ -21,21 +21,24 @@ let postStore;
 if (__CLIENT__) {
   appStore.listenWindow();
   const initialState = window.initialState || {};
-  postStore = PostStore.fromJS(initialState.posts || []);
+  postStore = PostStore.fromJS(initialState);
 }
 
-export default props => (
-  <section>
-    <DevTool />
-    <Provider appStore={appStore} postStore={props.store || postStore} >
-      <Router context={props.context}>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/post/:slug" component={Post} />
-          <Route exact path="/blogs/" component={Blog} />
-          <Route exact path="/about/" component={About} />
-        </Switch>
-      </Router>
-    </Provider>
-  </section>
-);
+export default (props) => {
+  const { context, location } = props;
+  return (
+    <section>
+      <DevTool />
+      <Provider appStore={appStore} postStore={props.store || postStore} >
+        <Router context={context} location={location}>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/post/:slug" component={Post} />
+            <Route exact path="/blogs/" component={Blog} />
+            <Route exact path="/about/" component={About} />
+          </Switch>
+        </Router>
+      </Provider>
+    </section>
+  );
+};

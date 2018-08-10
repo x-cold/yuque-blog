@@ -30,16 +30,13 @@ export default class Card extends Component {
     const date = new Date(updated_at)
       .toDateString()
       .replace(/ \w+/, '');
-    const div = document.createElement('div');
-    div.innerHTML = post.html;
-    const desc = div.innerText.substr(0, 120);
     return {
       slug,
       tagName,
       date,
       feature_image,
       title,
-      desc,
+      desc: '',
     };
   }
 

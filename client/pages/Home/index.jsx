@@ -15,7 +15,7 @@ import './index.scss';
 export default class HomeContent extends Component {
   renderPosts(posts) {
     const { appStore } = this.props;
-    const { ui = {} } = appStore;
+    const { ui } = appStore;
     const containerHeight = ui.windowHeight - 60 - 72;
     const windowWidth = ui.windowWidth;
     let showPosts;
@@ -63,7 +63,7 @@ export default class HomeContent extends Component {
   render() {
     const { postStore, appStore } = this.props;
     const { posts } = postStore;
-    const { ui = {} } = appStore;
+    const { ui } = appStore;
     if (!posts) {
       return <Loader />;
     }

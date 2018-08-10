@@ -1,12 +1,13 @@
 import React from 'react';
 import HomeContent from './content.jsx';
 
+import Layout from '../../containers/layout';
 import './index.scss';
 
 export default function Blog(props) {
   return (
-    <div className="wrapper full-layout-wrapper">
+    <Layout>
       <HomeContent {...props} />
-    </div>
+    </Layout>
   );
 }

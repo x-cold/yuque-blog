@@ -4,13 +4,17 @@ export default class PostStore {
   @observable
   posts = [];
 
+  @observable
+  post = {};
+
   toJS() {
     return this.posts;
   }
 
-  static fromJS(array) {
+  static fromJS({ posts, post }) {
     const postStore = new PostStore();
-    postStore.posts = array;
+    postStore.posts = Array.isArray(posts) ? posts : [];
+    postStore.post = post || {};
     return postStore;
   }
 }

@@ -21,9 +21,10 @@ export default class Index extends Component {
    * construct store for server side
    */
   static getStore(props) {
-    const { posts = {} } = props;
+    const { posts = [], post = {} } = props;
     const store = {
-      posts: posts.data,
+      posts,
+      post,
     };
     return store;
   }
@@ -43,6 +44,7 @@ export default class Index extends Component {
               __html: `window.initialState = ${state}`,
             }}
           />
+          <script src="//github.com/adobe-webplatform/Snap.svg/raw/master/dist/snap.svg-min.js" />
           <script src={helper.asset('manifest.js')} />
           <script src={helper.asset('index.js')} />
           <script

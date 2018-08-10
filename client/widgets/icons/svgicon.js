@@ -1,5 +1,5 @@
 // from https://github.com/desandro/classie/blob/master/classie.js
-import Snap from 'snapsvg';
+const mina = window.mina || {};
 
 function classReg(className) {
   return new RegExp(`(^|\\s+)${className}(\\s+|$)`);
@@ -166,4 +166,4 @@ svgIcon.prototype.toggle = function (motion) {
   this.options.onToggle();
 };
 
-module.exports = svgIcon;
+export default svgIcon;
