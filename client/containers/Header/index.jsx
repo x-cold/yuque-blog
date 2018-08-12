@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-import { HamburgerCross } from '../../widgets/icons/icons.jsx';
-import ModalNav from '../modal_nav/modal_nav.jsx';
+import ModalNav from '../ModalNav';
+import { HamburgerCross } from '../../widgets/icons/icons';
 import { headerNav } from '../../info.json';
 
-import './header.scss';
+import './index.scss';
 
 export default class Header extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './modal_nav.scss';
+import './index.scss';
 
 function ModalNav(props) {
   const active = props.isExpanded;

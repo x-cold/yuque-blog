@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Route } from 'react-router-dom';
 
-import HScroll from '../widgets/hscroll/index.jsx';
-import CommonHeader from './header/header.jsx';
-import HomeHeader from './home/header';
-import HomeFooter from './home/footer';
+import HScroll from '../../widgets/hscroll';
+import CommonHeader from '../Header';
+import HomeHeader from '../HomeHeader';
+import HomeFooter from '../HomeFooter';
 
 export const DefaultLayout = ({ component: Component, ...rest }) => {
   return (

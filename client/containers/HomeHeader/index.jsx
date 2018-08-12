@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { headerNav } from '../../info.json';
 
-import './header.scss';
+import './index.scss';
 
 export default class HomeHeader extends Component {
   render() {

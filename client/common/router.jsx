@@ -5,14 +5,16 @@ import { BrowserRouter, StaticRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import DevTool from 'mobx-react-devtools';
 
-import { DefaultLayout, HomeLayout } from '../containers/layout';
 import AppStore from '../stores/app';
 import PostStore from '../stores/post';
+
+import { DefaultLayout, HomeLayout } from '../containers/Layout';
 import Home from '../pages/Home';
 import Post from '../pages/Post';
 import Blog from '../pages/Blog';
 import About from '../pages/About';
 import NotFound from '../pages/404';
+
 import '../styles/site.scss';
 
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;

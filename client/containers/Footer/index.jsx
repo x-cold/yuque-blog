@@ -2,7 +2,7 @@ import React from 'react';
 
 import { links } from '../../info.json';
 
-import './footer.scss';
+import './index.scss';
 
 export default class Footer extends React.Component {
   renderLinks() {
