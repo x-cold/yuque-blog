@@ -1,6 +1,6 @@
 const svgIconConfig = {
   hamburgerCross: {
-    url: '/assets/svg/hamburger.svg',
+    url: '/public/svg/hamburger.svg',
     animation: [
       {
         el: 'path:nth-child(1)',
@@ -12,7 +12,10 @@ const svgIconConfig = {
       {
         el: 'path:nth-child(2)',
         animProperties: {
-          from: { val: '{"transform" : "s1 1", "opacity" : 1}', before: '{"transform" : "s0 0"}' },
+          from: {
+            val: '{"transform" : "s1 1", "opacity" : 1}',
+            before: '{"transform" : "s0 0"}',
+          },
           to: { val: '{"opacity" : 0}' },
         },
       },

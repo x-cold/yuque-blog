@@ -11,7 +11,6 @@ import './index.scss';
 @inject('appStore')
 @inject('postStore')
 @observer
-
 export default class HomeContent extends Component {
   constructor(props) {
     super(props);

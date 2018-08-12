@@ -34,7 +34,7 @@ export default class Index extends Component {
     return (
       <html>
         <head>
-          <title>Yuque Blog</title>
+          <title>阿里巴巴 TXD 博客</title>
           <link rel="stylesheet" href={helper.asset('index.css')} />
         </head>
         <body>

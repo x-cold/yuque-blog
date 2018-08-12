@@ -2,12 +2,6 @@
 @import '../../styles/mixins/manifest';
 
 .post {
-  // 统一文章详情字体
-  font-family: 'PT Sans';
-  * {
-    font-family: 'PT Sans';
-  }
-
   .post-author {
     margin: 0 24px;
     padding: 60px 0;

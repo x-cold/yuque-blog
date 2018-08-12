@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 import svgIconConfig from './svgicon_config';
 import svgIcon from './svgicon';
 
-const mina = window.mina || {};
+const noop = function noop() {};
+
+const mina = window.mina || noop;
 
 export function Falafel() {
   const height = 8;
@@ -58,7 +59,7 @@ export class HamburgerCross extends Component {
   }
 
   componentDidMount() {
-    const container = ReactDOM.findDOMNode(this.container);
+    const { container } = this;
     this.singleHamburgerCross = new svgIcon(container, svgIconConfig, {
       easing: mina.ease, speed: 300,
     });

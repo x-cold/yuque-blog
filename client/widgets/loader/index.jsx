@@ -18,7 +18,7 @@ export default function Loader() {
     <div style={containerStyle} className="loader">
       <img
         style={imageStyle}
-        src="http://img.lanrentuku.com/img/allimg/1212/5-121204193955-51.gif"
+        src="//img.alicdn.com/tfs/TB1xPJUnqAoBKNjSZSyXXaHAVXa-80-80.gif"
         alt="Loading icon"
       />
     </div>

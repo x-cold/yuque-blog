@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import './index.scss';
 
 function ModalNav(props) {
+  const { location = {} } = props;
   const active = props.isExpanded;
-  const list = props.buttons.map((button, i) => {
+  const list = props.buttons.map((button) => {
     const { url, name } = button;
-    const buttonActive = window.location.pathname === url;
+    const buttonActive = location.pathname === url;
     return (
-      <li key={i} className="nav-item" >
+      <li key={`nav-item-${url}`} className="nav-item" >
         <a
           className={buttonActive && 'active' || ''}
           href={url}
@@ -23,9 +25,6 @@ function ModalNav(props) {
 
   return (
     <div className={`modal-nav${active ? ' active' : ''}`}>
-      {/* <div className='close-button' onClick={props.toggleExpandedState}>
-        <Close />
-      </div> */}
       <ul className="nav-list">
         {list}
       </ul>
@@ -38,4 +37,4 @@ ModalNav.propTypes = {
   isExpanded: PropTypes.bool.isRequired,
 };
 
-export default ModalNav;
+export default withRouter(ModalNav);
