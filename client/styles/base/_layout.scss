@@ -36,6 +36,7 @@
 
 .home-wrapper {
   overflow-x: visible;
+  display: inline-flex;
   &::-webkit-scrollbar {
     display: none;
   }

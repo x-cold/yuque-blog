@@ -44,7 +44,7 @@ export default class Index extends Component {
               __html: `window.initialState = ${state}`,
             }}
           />
-          <script src="//github.com/adobe-webplatform/Snap.svg/raw/master/dist/snap.svg-min.js" />
+          <script src="//cdn.bootcss.com/snap.svg/0.5.1/snap.svg-min.js" />
           <script src={helper.asset('manifest.js')} />
           <script src={helper.asset('index.js')} />
           <script

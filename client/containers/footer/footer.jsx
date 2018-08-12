@@ -16,7 +16,7 @@ export default class Footer extends React.Component {
     return (
       <footer className="footer">
         <div className="copyright">
-          <p>Copyright © 1999 - 2017 Alibaba Inc. All Rights Reserved.</p>
+          <p>Copyright © 1999 - 2018 Alibaba Inc. All Rights Reserved.</p>
         </div>
         <div className="link-list">
           {

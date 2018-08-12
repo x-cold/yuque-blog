@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { headerNav } from '../../../info.json';
+import { headerNav } from '../../info.json';
 
 import './header.scss';
 

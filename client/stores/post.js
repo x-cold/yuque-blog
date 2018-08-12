@@ -2,19 +2,24 @@ import { observable } from 'mobx';
 
 export default class PostStore {
   @observable
-  posts = [];
+  posts = []; // 文章列表
 
   @observable
-  post = {};
+  post = {}; // 文章详情
 
   toJS() {
-    return this.posts;
+    return {
+      post: this.post,
+      posts: this.posts,
+    };
   }
 
   static fromJS({ posts, post }) {
     const postStore = new PostStore();
     postStore.posts = Array.isArray(posts) ? posts : [];
-    postStore.post = post || {};
+    if (post) {
+      postStore[post.slug] = post;
+    }
     return postStore;
   }
 }

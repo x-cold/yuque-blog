@@ -17,21 +17,21 @@ export default class Header extends Component {
   }
 
   render() {
-    const { windowHeight, scrollTop, scrollDirection } = this.props.ui;
-    const isTransparent = windowHeight - 70 > scrollTop;
-    const isHidden = (scrollTop > (windowHeight - 70)) && (scrollDirection === 'down');
-
     const cls = classNames({
       header: true,
+      'header--transparent': true,
       'header--expanded': this.state.isExpanded,
-      'header--hidden': isHidden,
-      'header--transparent': isTransparent,
     });
 
     return (
       <header className={cls}>
-        <nav className="header__icon header__falafel" onClick={this.toggleExpandedState}>
-          <HamburgerCross ref={(e) => { this.btn = e; }} />
+        <nav
+          className="header__icon header__falafel"
+          onClick={this.toggleExpandedState}
+        >
+          {
+            __CLIENT__ && <HamburgerCross ref={(e) => { this.btn = e; }} />
+          }
         </nav>
         <ModalNav
           isExpanded={this.state.isExpanded}
@@ -45,6 +45,6 @@ export default class Header extends Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-    this.btn.toggle();
+    this.btn && this.btn.toggle();
   }
 }

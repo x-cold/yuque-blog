@@ -4,17 +4,15 @@ import { observer, inject } from 'mobx-react';
 
 import Loader from '../../widgets/loader';
 import PostCard from '../../widgets/post_card';
-import Header from './child/header';
-import Footer from './child/footer';
-
 import './index.scss';
 
 @inject('appStore')
 @inject('postStore')
 @observer
 export default class HomeContent extends Component {
-  renderPosts(posts) {
-    const { appStore } = this.props;
+  renderPosts() {
+    const { appStore, postStore } = this.props;
+    const { posts } = postStore;
     const { ui } = appStore;
     const containerHeight = ui.windowHeight - 60 - 72;
     const windowWidth = ui.windowWidth;
@@ -61,47 +59,37 @@ export default class HomeContent extends Component {
   }
 
   render() {
-    const { postStore, appStore } = this.props;
+    const { postStore } = this.props;
     const { posts } = postStore;
-    const { ui } = appStore;
     if (!posts) {
       return <Loader />;
     }
     const total = posts.length || 0;
     return (
-      <section>
-        <div
-          className="home-container"
-          style={{
-            minHeight: `${ui.windowHeight - 60}px`,
-          }}
-        >
-          <Header />
-          {
-            this.renderPosts(posts)
-          }
-          <div className="read-more">
-            <div className="social-share">
-              <div className="social-item">
-                <img src="https://img.alicdn.com/tfs/TB1fpDuduuSBuNjSsplXXbe8pXa-48-38.png" />
-              </div>
-              <div className="social-item">
-                <img src="https://img.alicdn.com/tfs/TB16h_2dx9YBuNjy0FfXXXIsVXa-46-38.png" />
-              </div>
+      <div className="home-container">
+        {
+          this.renderPosts()
+        }
+        <div className="read-more">
+          <div className="social-share">
+            <div className="social-item">
+              <img src="https://img.alicdn.com/tfs/TB1fpDuduuSBuNjSsplXXbe8pXa-48-38.png" />
             </div>
-            <div className="more-guide">
-              <div className="total">
-                {total > 9 ? total : `0${total}`}
-              </div>
-              <a className="more-link" href="/blogs/">
-                <span>MORE</span>
-                <img src="https://img.alicdn.com/tfs/TB1D1bUdv5TBuNjSspmXXaDRVXa-28-16.png" />
-              </a>
+            <div className="social-item">
+              <img src="https://img.alicdn.com/tfs/TB16h_2dx9YBuNjy0FfXXXIsVXa-46-38.png" />
             </div>
           </div>
+          <div className="more-guide">
+            <div className="total">
+              {total > 9 ? total : `0${total}`}
+            </div>
+            <a className="more-link" href="/blogs/">
+              <span>MORE</span>
+              <img src="https://img.alicdn.com/tfs/TB1D1bUdv5TBuNjSspmXXaDRVXa-28-16.png" />
+            </a>
+          </div>
         </div>
-        <Footer />
-      </section>
+      </div>
     );
   }
 }
