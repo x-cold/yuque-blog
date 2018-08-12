@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { getDetail } from '../../services/yuque';
 
-import Static from '../../widgets/static/static';
+import Static from '../../widgets/static';
 import Loader from '../../widgets/loader';
 import Hero from '../../widgets/hero/hero';
 

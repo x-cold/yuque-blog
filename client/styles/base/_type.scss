@@ -1,7 +1,9 @@
 @import '../mixins/manifest';
 
+$default-font-family: 'Chinese Quote',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif;
+
 * {
-  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  font-family: $default-font-family;
   font-weight: normal;
 }
 
@@ -9,13 +11,13 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  font-family: $default-font-family;
 }
 
 p,
 a,
 li {
-  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  font-family: $default-font-family;
 }
 
 p,
