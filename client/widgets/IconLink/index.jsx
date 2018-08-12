@@ -1,7 +1,7 @@
 import React from 'react';
 
-import './icon_link.scss';
-import * as icons from '../icons/icons.jsx';
+import './index.scss';
+import * as icons from '../Icons';
 
 export default function IconLink(props) {
   return (

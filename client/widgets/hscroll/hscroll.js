@@ -39,4 +39,4 @@ function horwheel(node, cb) {
 /**
  * Expose horwheel
  */
-module.exports = horwheel;
+export default horwheel;

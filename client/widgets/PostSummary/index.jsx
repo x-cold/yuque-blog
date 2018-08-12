@@ -25,7 +25,7 @@ export default class Card extends Component {
 
   getSummary() {
     const { post } = this.props;
-    const { slug, tags = [], feature_image, title, updated_at } = post;
+    const { slug, tags = [], feature_image, title, updated_at, description } = post;
     const tagName = tags[0] && tags[0].name || '-';
     const date = new Date(updated_at)
       .toDateString()
@@ -36,7 +36,7 @@ export default class Card extends Component {
       date,
       feature_image,
       title,
-      desc: '',
+      desc: description,
     };
   }
 
@@ -87,9 +87,9 @@ export default class Card extends Component {
         </div>
         <div className="intro" style={{ width: rectStyle.width }}>
           <h2 className="post-title">{title}</h2>
-          {/* <div className="post-desc">
+          <div className="post-desc">
             { desc }
-          </div> */}
+          </div>
         </div>
       </div>
     );

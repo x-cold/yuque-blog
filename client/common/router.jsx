@@ -8,7 +8,7 @@ import DevTool from 'mobx-react-devtools';
 import AppStore from '../stores/app';
 import PostStore from '../stores/post';
 
-import { DefaultLayout, HomeLayout } from '../containers/Layout';
+import { DefaultLayout, HomeLayout, BlogLayout } from '../containers/Layout';
 import Home from '../pages/Home';
 import Post from '../pages/Post';
 import Blog from '../pages/Blog';
@@ -37,7 +37,7 @@ export default (props) => {
         <Router context={context} location={location}>
           <Switch>
             <HomeLayout exact path="/" component={Home} />
-            <DefaultLayout path="/post/:slug" component={Post} />
+            <BlogLayout path="/post/:slug" component={Post} />
             <DefaultLayout path="/blogs/" component={Blog} />
             <DefaultLayout path="/about/" component={About} />
             <Route component={NotFound} />

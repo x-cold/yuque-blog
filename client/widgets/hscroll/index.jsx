@@ -1,20 +1,19 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import Listen from './hscroll';
 
 class HScroll extends React.Component {
-  _onChange = (e) => {
-    this.props.onChange && this.props.onChange(e);
-  }
-
   componentDidMount() {
     this._mousewheel = Listen(this.container, (e) => {
-      this._onChange(e);
+      this.onChange(e);
     });
   }
 
-  componentWillUnMount() {
+  componentWillUnmount() {
     this._mousewheel && this._mousewheel.remove();
+  }
+
+  onChange = (e) => {
+    this.props.onChange && this.props.onChange(e);
   }
 
   render() {
@@ -26,7 +25,12 @@ class HScroll extends React.Component {
         ref={(e) => { this.container = e; }}
         {...data}
       >
-        {React.Children.map(this.props.children, (element, idx) => React.cloneElement(element, { ref: idx }))}
+        {
+          React.Children
+            .map(children, (element, idx) => React
+              .cloneElement(element, { ref: idx })
+            )
+        }
       </div>
     );
   }

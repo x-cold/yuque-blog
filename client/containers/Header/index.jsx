@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import ModalNav from '../ModalNav';
-import { HamburgerCross } from '../../widgets/icons/icons';
+import { HamburgerCross } from '../../widgets/Icons';
 import { headerNav } from '../../info.json';
 
 import './index.scss';

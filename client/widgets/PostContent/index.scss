@@ -2,10 +2,8 @@
 @import '../../styles/mixins/manifest';
 
 .static {
-  $padding: 24px;
   width: 100%;
-  // The 6px accounts for line height in the paragraph and makes sure the space at on the side and at the top are exactly the same. This looks great on small screens.
-  padding: 24px $padding;
+  padding: $padding;
   margin: auto;
 
   @mixin expand {
@@ -28,7 +26,7 @@
 
   @include expand {
     width: 768px;
-    padding: 50px 0;
+    padding: $padding 0;
   }
 
   blockquote {
@@ -41,7 +39,7 @@
   ul {
     list-style-type: circle;
     list-style-position: outside;
-    padding: 25px;
+    padding: $padding;
   }
 
   p,

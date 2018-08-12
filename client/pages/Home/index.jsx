@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 
-import Loader from '../../widgets/loader';
-import PostCard from '../../widgets/post_card';
+import Loader from '../../widgets/Loader';
+import PostCard from '../../widgets/PostCard';
 import './index.scss';
 
 @inject('appStore')
@@ -15,7 +15,7 @@ export default class HomeContent extends Component {
     const { posts } = postStore;
     const { ui } = appStore;
     const containerHeight = ui.windowHeight - 60 - 72;
-    const windowWidth = ui.windowWidth;
+    const { windowWidth } = ui;
     let showPosts;
     // 动态控制文章数量
     if (windowWidth < 1440) {

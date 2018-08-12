@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { formatDate } from '../../utils/format';
 
-import './post_link.scss';
+import './index.scss';
 
 export default function PostLink(props) {
   const { post, index } = props;

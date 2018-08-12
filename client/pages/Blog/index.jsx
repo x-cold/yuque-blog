@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import HScroll from '../../widgets/hscroll/index.jsx';
-import Loader from '../../widgets/loader';
-import PostSummary from '../../widgets/post_summary/index.jsx';
+
+import HScroll from '../../widgets/Hscroll';
+import Loader from '../../widgets/Loader';
+import PostSummary from '../../widgets/PostSummary';
 // import { tags } from '../../info.json';
 
 import './index.scss';

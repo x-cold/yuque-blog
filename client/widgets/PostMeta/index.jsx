@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { formatDate } from '../../utils/format';
 
-import './hero.scss';
+import './index.scss';
 
-class Hero extends Component {
+class Hero extends PureComponent {
   render() {
     const { title, updated_at } = this.props;
     return (
-      <div className="static hero">
+      <div className="hero">
         <div className="hero__title-bar">
           <div className="hero__title-bar__content">
             <h1>{title}</h1>
@@ -22,14 +22,6 @@ class Hero extends Component {
         </div> */}
       </div>
     );
-    // return (
-    //   <div className="post-desc">
-    //     <h2 className="post-title">{title}</h2>
-    //     <div className="post-date">
-    //       <span></span>
-    //     </div>
-    //   </div>
-    // )
   }
 }
 

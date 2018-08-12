@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Parallax from 'parallax-js';
 import { observer, inject } from 'mobx-react';
+import Parallax from 'parallax-js';
 
-import HScroll from '../../widgets/hscroll/index.jsx';
+import HScroll from '../../widgets/Hscroll';
 import './index.scss';
 
 // 禁用垂直方向的手势
