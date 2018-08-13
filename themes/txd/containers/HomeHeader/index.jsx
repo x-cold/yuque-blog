@@ -1,24 +1,37 @@
-import React, { Component } from 'react';
-import { headerNav } from '../../info.json';
+import React, { PureComponent } from 'react';
+import { observer, inject } from 'mobx-react';
 
 import './index.scss';
 
-export default class HomeHeader extends Component {
+@inject('appStore')
+@observer
+export default class HomeHeader extends PureComponent {
   render() {
+    const { appStore } = this.props;
+    const { config } = appStore;
+    const { navigators = [] } = config;
+
     return (
       <div className="home-navigator">
         <ul className="nav-list">
           {
-            headerNav.map((button, index) => (<li
+            navigators.map((button, index) => (<li
               className="nav-item"
               key={button.url}
             >
-              <a href={button.url} className={index === 0 && 'active' || ''}>{button.name}</a>
+              <a
+                href={button.url}
+                className={index === 0 && 'active' || ''}
+              >
+                {button.name}
+              </a>
             </li>))
           }
         </ul>
         <div className="logo">
-          <img src="https://img.alicdn.com/tfs/TB1vc_JdpuWBuNjSspnXXX1NVXa-718-186.png" />
+          <img
+            src="//img.alicdn.com/tfs/TB1vc_JdpuWBuNjSspnXXX1NVXa-718-186.png"
+          />
         </div>
       </div>
     );

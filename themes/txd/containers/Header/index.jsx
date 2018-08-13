@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 import classNames from 'classnames';
 
 import ModalNav from '../ModalNav';
 import { HamburgerCross } from '../../widgets/Icons';
-import { headerNav } from '../../info.json';
 
 import './index.scss';
 
+@inject('appStore')
+@observer
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +25,10 @@ export default class Header extends Component {
       'header--expanded': this.state.isExpanded,
     });
 
+    const { appStore } = this.props;
+    const { config } = appStore;
+    const { navigators = [] } = config;
+
     return (
       <header className={cls}>
         <nav
@@ -35,7 +41,7 @@ export default class Header extends Component {
         </nav>
         <ModalNav
           isExpanded={this.state.isExpanded}
-          buttons={headerNav}
+          buttons={navigators}
           toggleExpandedState={this.toggleExpandedState}
         />
       </header>);

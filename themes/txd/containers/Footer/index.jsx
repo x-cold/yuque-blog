@@ -1,15 +1,21 @@
 import React from 'react';
-
-import { links } from '../../info.json';
+import { observer, inject } from 'mobx-react';
 
 import './index.scss';
 
+@inject('appStore')
+@observer
 export default class Footer extends React.Component {
   renderLinks() {
     if (!this.props.showLinks) {
       return null;
     }
-    return links.map((link, i) => <a key={i} href={link.url}>{ link.name }</a>);
+    const { appStore } = this.props;
+    const { config } = appStore;
+    const { links = [] } = config;
+    return links.map(link => (
+      <a key={link.name} href={link.url}>{ link.name }</a>
+    ));
   }
 
   render() {
