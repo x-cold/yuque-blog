@@ -19,13 +19,15 @@ import '../styles/site.scss';
 
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;
 
-const appStore = new AppStore();
 let postStore;
+let appStore;
 
 if (__CLIENT__) {
-  appStore.listenWindow();
   const initialState = window.initialState || {};
   postStore = PostStore.fromJS(initialState);
+  appStore = AppStore.fromJS(initialState);
+  // 监听窗口变化
+  appStore.listenWindow();
 }
 
 export default (props) => {
@@ -33,7 +35,7 @@ export default (props) => {
   return (
     <section>
       <DevTool />
-      <Provider appStore={appStore} postStore={props.store || postStore} >
+      <Provider appStore={props.appStore || appStore} postStore={props.postStore || postStore} >
         <Router context={context} location={location}>
           <Switch>
             <HomeLayout exact path="/" component={Home} />

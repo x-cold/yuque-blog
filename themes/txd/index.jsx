@@ -8,11 +8,13 @@ import './pages/Home/index.scss';
 export default class Index extends Component {
   static getPartial(props) {
     const { ctx, store } = props;
+    const { posts, post, config } = store;
     return {
       html: <IndexRouter
         context={{}}
         location={ctx.req.url}
-        store={store}
+        postStore={{ posts, post }}
+        appStore={{ config, ui: {} }}
       />,
     };
   }
@@ -21,21 +23,26 @@ export default class Index extends Component {
    * construct store for server side
    */
   static getStore(props) {
-    const { posts = [], post = {} } = props;
+    const { posts = [], post = {}, config = {} } = props;
     const store = {
       posts,
       post,
+      config,
     };
     return store;
   }
 
   render() {
-    const { html, helper, state } = this.props;
+    const { props } = this;
+    const { html, helper, state, config } = props;
     return (
       <html>
         <head>
-          <title>阿里巴巴 TXD 博客</title>
+          <title>{config.title || 'TXD 技术博客'}</title>
           <link rel="stylesheet" href={helper.asset('index.css')} />
+          <meta name="keywords" content={config.keywords} />
+          <meta name="description" content={config.description} />
+          <meta charSet="UTF-8" />
         </head>
         <body>
           <div id="container" dangerouslySetInnerHTML={{ __html: html }} />
@@ -54,7 +61,9 @@ export default class Index extends Component {
               if ('serviceWorker' in navigator) {
                 // Use the window load event to keep the page load performant
                 window.addEventListener('load', () => {
-                  navigator.serviceWorker.register('/service-worker.js', {scope: '/'});
+                  navigator
+                    .serviceWorker
+                    .register('/service-worker.js', {scope: '/'});
                 });
               }`,
             }}
