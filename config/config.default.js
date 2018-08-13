@@ -30,6 +30,7 @@ module.exports = (appInfo) => {
     },
     client: clientViewRoot,
     view: {
+      defaultExtension: '.jsx',
       root: `$${serverViewRoot},${clientViewRoot}`,
     },
     isomorphic: {
