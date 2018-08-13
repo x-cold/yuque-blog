@@ -19,7 +19,9 @@ try {
 }
 
 module.exports = (appInfo) => {
-  const clientViewRoot = path.join(appInfo.baseDir, `themes/${blogConfig.theme}`);
+  const clientViewRoot = path.join(
+    appInfo.baseDir, `themes/${blogConfig.theme}`
+  );
   const serverViewRoot = path.join(appInfo.baseDir, '/app/view');
   return {
     keys: 'key',
