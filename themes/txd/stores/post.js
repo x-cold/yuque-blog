@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx';
-import { getList, getDetail } from '../services/yuque';
+import { getList, getDetail, getToc } from '../services/yuque';
 
 export default class PostStore {
   @observable
@@ -7,6 +7,9 @@ export default class PostStore {
 
   @observable
   post = {}; // 文章详情
+
+  @observable
+  toc = []; // 文章目录
 
   @action
   fetchPosts() {
@@ -27,10 +30,20 @@ export default class PostStore {
       });
   }
 
+  @action
+  fetchToc() {
+    return getToc()
+      .then((toc) => {
+        this.toc = toc;
+        return toc;
+      });
+  }
+
   toJS() {
     return {
       post: this.post,
       posts: this.posts,
+      toc: this.toc,
     };
   }
 

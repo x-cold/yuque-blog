@@ -30,6 +30,15 @@ module.exports = (app) => {
       });
       return result.data;
     }
+
+    async getArticleToc() {
+      const { ctx } = this;
+      const api = `${API_HOST}/repos/${namespace}/toc`;
+      const result = await ctx.curl(api, {
+        dataType: 'json',
+      });
+      return result.data;
+    }
   }
   return YuqueService;
 };

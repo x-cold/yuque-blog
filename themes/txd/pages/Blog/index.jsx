@@ -19,6 +19,15 @@ export default class HomeContent extends Component {
     };
   }
 
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    const { postStore } = this.props;
+    postStore.fetchToc();
+  }
+
   renderPosts(cardHeight) {
     const { postStore } = this.props;
     const { posts } = postStore;

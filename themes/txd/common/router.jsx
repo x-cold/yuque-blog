@@ -35,7 +35,10 @@ export default (props) => {
   return (
     <section>
       <DevTool />
-      <Provider appStore={props.appStore || appStore} postStore={props.postStore || postStore} >
+      <Provider
+        appStore={props.appStore || appStore}
+        postStore={props.postStore || postStore}
+      >
         <Router context={context} location={location}>
           <Switch>
             <HomeLayout exact path="/" component={Home} />
