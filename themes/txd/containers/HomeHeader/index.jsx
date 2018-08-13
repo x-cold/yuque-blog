@@ -1,14 +1,14 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 
 import './index.scss';
 
 @inject('appStore')
 @observer
-export default class HomeHeader extends PureComponent {
+export default class HomeHeader extends Component {
   render() {
     const { appStore } = this.props;
-    const { config } = appStore;
+    const { config = {} } = appStore;
     const { navigators = [] } = config;
 
     return (

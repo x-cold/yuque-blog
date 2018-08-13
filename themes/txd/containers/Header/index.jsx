@@ -26,7 +26,7 @@ export default class Header extends Component {
     });
 
     const { appStore } = this.props;
-    const { config } = appStore;
+    const { config = {} } = appStore;
     const { navigators = [] } = config;
 
     return (

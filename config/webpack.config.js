@@ -14,6 +14,7 @@ module.exports = (app, defaultConfig) => {
       break;
     }
   }
+
   defaultConfig.plugins.push(
     new WorkboxPlugin.GenerateSW({
       cacheId: 'webpack-pwa', // 设置前缀

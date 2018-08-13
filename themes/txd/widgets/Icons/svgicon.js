@@ -1,5 +1,6 @@
 // from https://github.com/desandro/classie/blob/master/classie.js
 const mina = window.mina || {};
+const Snap = window.Snap || {};
 
 function classReg(className) {
   return new RegExp(`(^|\\s+)${className}(\\s+|$)`);
@@ -13,7 +14,7 @@ function hasClass(el, c) {
 
 function extend(a, b) {
   for (const key in b) {
-    if (b.hasOwnProperty(key)) {
+    if (Object.hasOwnProperty.call(b, key)) {
       a[key] = b[key];
     }
   }
@@ -140,15 +141,15 @@ svgIcon.prototype.toggle = function (motion) {
 
     if (motion) {
       setTimeout(
-        (function (el, val, animProp) {
+        (function (_el, _val, _animProp) {
           return function () {
             el.animate(JSON.parse(val), self.options.speed, self.options.easing, function () {
-              if (animProp.after) {
-                this.attr(JSON.parse(animProp.after));
+              if (_animProp.after) {
+                this.attr(JSON.parse(_animProp.after));
               }
-              if (animProp.animAfter) {
+              if (_animProp.animAfter) {
                 this.animate(
-                  JSON.parse(animProp.animAfter),
+                  JSON.parse(_animProp.animAfter),
                   self.options.speed,
                   self.options.easing
                 );
