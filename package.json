@@ -33,6 +33,7 @@
     "beidou-core": "^1.0.4",
     "classnames": "^2.2.6",
     "domready": "^1.0.8",
+    "js-yaml": "^3.12.0",
     "marked": "^0.4.0",
     "mobx": "^5.0.3",
     "mobx-devtools": "^0.9.18",
