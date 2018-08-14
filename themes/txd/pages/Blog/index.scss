@@ -50,7 +50,7 @@
     opacity: 1;
   }
   .filter-list {
-    width: 320px;
+    min-width: 320px;
     @include portrait {
       width: 200px;
     }

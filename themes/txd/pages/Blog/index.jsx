@@ -14,8 +14,12 @@ import './index.scss';
 export default class HomeContent extends Component {
   constructor(props) {
     super(props);
+    const { postStore} = this.props;
+    const { posts } = postStore;
     this.state = {
       activeIndex: 0,
+      slug: 'all',
+      curPosts: posts,
     };
   }
 
@@ -28,9 +32,7 @@ export default class HomeContent extends Component {
     postStore.fetchToc();
   }
 
-  renderPosts(cardHeight) {
-    const { postStore } = this.props;
-    const { posts } = postStore;
+  renderPosts(cardHeight , posts) {
     const { activeIndex } = this.state;
     return posts.map((post, index) => (<PostSummary
       className="fadeInRight"
@@ -42,18 +44,53 @@ export default class HomeContent extends Component {
     />));
   }
 
-  // renderTags() {
-  //   const { url } = this.props;
-  //   return tags.map(tag => <li key={tag.url} className={`${url.indexOf(tag.url) > -1 ? 'active' : ''} fadeInRight`}>
-  //     <a href={tag.url}>{tag.name}</a>
-  //   </li>);
-  // }
+  updatePost(){
+    const slug = this.state.slug;
+    const { postStore ,appStore} = this.props;
+    const { posts, toc} = postStore;
+    const { curPosts }= this.state
+    if(slug === 'all' ){
+      this.setState({curPosts:posts});
+    }
+    let tip = '';
+    let tocMap = {};
+    (toc||[]).forEach(t => {
+       if(t.depth === 1) {
+          tip = t.slug
+          tocMap[t.slug] = [];
+       }else{
+        tocMap[tip].push(t);
+       }
+    });
+    let newPost = [];
+    (tocMap[slug]||[]).map(t=>{newPost.push(t)});
+    this.setState({curPosts:newPost});
+
+  }
+
+  updateSlug(data){
+    if(!data)return;
+    this.setState({slug : data });
+    this.updatePost();
+  }
+
+  renderTags() {
+    const { postStore } = this.props;
+    const { toc } = postStore;
+    let tags = (toc||[]).filter(i=>i.depth===1);
+    tags.unshift({slug:'all', title:'All' });
+    tags = window.isMobile ? tags.slice(0,3) : tags.slice(0,5);
+    let slug = this.state.slug;
+    return tags.map(tag => <li key={tag.slug} className={`${slug.indexOf(tag.slug) > -1 ? 'active' : ''} fadeInRight`}>
+      <a href="javascript:;" onClick={this.updateSlug.bind(this,tag.slug)}>{tag.title}</a>
+    </li>);
+  }
 
   render() {
     const { postStore, appStore } = this.props;
-    const { posts } = postStore;
+    const { curPosts } = this.state;
     const { ui = {} } = appStore;
-    if (!posts) {
+    if (!curPosts) {
       return (<div className="common-page">
         <div className="page-title">Blog</div>
         <Loader />
@@ -64,6 +101,14 @@ export default class HomeContent extends Component {
     const cardHeight = window.isMobile ? (ui.windowWidth - 72 - 12) : (containerHeight - 70) / 2.5;
     return (
       <div className="common-page">
+        <div className="search-bar">
+          <ul className="filter-list">
+            {
+              this.renderTags()
+            }
+          </ul>
+          <div className="search"></div>
+        </div>
         <div className="page-title">Blog</div>
         <HScroll
           className="page-container blog-post-list"
@@ -73,7 +118,7 @@ export default class HomeContent extends Component {
           }}
         >
           {
-            this.renderPosts(cardHeight)
+            this.renderPosts(cardHeight,curPosts)
           }
         </HScroll>
       </div>
