@@ -79,15 +79,14 @@ function svgIcon(el, config, options) {
   }
   const self = this;
   // load external svg
-  Snap.load(this.config.url, (f) => {
-    const g = f.select('g');
-    self.svg.append(g);
-    self.options.onLoad();
-    // self._initEvents();
-    if (self.reverse) {
-      self.toggle();
-    }
-  });
+  const svg = Snap(`#${options.id}`);
+  const g = svg.select('g');
+  self.svg.append(g);
+  self.options.onLoad();
+  // self._initEvents();
+  if (self.reverse) {
+    self.toggle();
+  }
 }
 
 svgIcon.prototype.options = {

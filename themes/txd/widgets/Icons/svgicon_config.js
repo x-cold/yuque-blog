@@ -1,6 +1,5 @@
 const svgIconConfig = {
   hamburgerCross: {
-    url: '/public/svg/hamburger.svg',
     animation: [
       {
         el: 'path:nth-child(1)',

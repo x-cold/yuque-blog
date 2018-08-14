@@ -56,12 +56,15 @@ export class HamburgerCross extends Component {
     super(props);
     this.singleHamburgerCross = null;
     this.container = null;
+    this.id = `hamburgerCross-${Date.now().toString(36)}`;
   }
 
   componentDidMount() {
-    const { container } = this;
+    const { container, id } = this;
     this.singleHamburgerCross = new svgIcon(container, svgIconConfig, {
-      easing: mina.ease, speed: 300,
+      id,
+      easing: mina.ease,
+      speed: 300,
     });
   }
 
@@ -71,10 +74,44 @@ export class HamburgerCross extends Component {
 
   render() {
     return (
-      <span
-        data-icon-name="hamburgerCross"
-        ref={(e) => { this.container = e; }}
-      />
+      <span>
+        <svg
+          id={this.id}
+          style={{ display: 'none' }}
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              fill="none"
+              stroke="#000"
+              strokeWidth="5"
+              strokeLinejoin="bevel"
+              d="m 5.0916789,15.818994 53.8166421,0"
+            />
+            <path
+              fill="none"
+              stroke="#000"
+              strokeWidth="5"
+              strokeLinejoin="bevel"
+              d="m 5.1969746,31.909063 53.8166424,0"
+            />
+            <path
+              fill="none"
+              stroke="#000"
+              strokeWidth="5"
+              strokeLinejoin="bevel"
+              d="m 5.0916788,47.95698 53.8166422,0"
+            />
+          </g>
+        </svg>
+        <span
+          data-icon-name="hamburgerCross"
+          ref={(e) => { this.container = e; }}
+        />
+      </span>
     );
   }
 }
