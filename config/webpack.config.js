@@ -1,6 +1,7 @@
 'use strict';
 
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (app, defaultConfig) => {
   for (const loader of defaultConfig.module.rules) {
@@ -51,8 +52,13 @@ module.exports = (app, defaultConfig) => {
     })
   );
 
+  defaultConfig.plugins.push(
+    new BundleAnalyzerPlugin()
+  );
+
   defaultConfig.externals = {
     Snap: 'Snap',
   };
+
   return defaultConfig;
 };

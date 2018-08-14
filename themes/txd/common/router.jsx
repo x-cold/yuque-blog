@@ -17,6 +17,8 @@ import NotFound from '../pages/404';
 
 import '../styles/site.scss';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;
 
 let postStore;
@@ -34,7 +36,7 @@ export default (props) => {
   const { context, location } = props;
   return (
     <section>
-      <DevTool />
+      { isDev && <DevTool />}
       <Provider
         appStore={props.appStore || appStore}
         postStore={props.postStore || postStore}
