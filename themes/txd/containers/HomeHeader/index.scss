@@ -4,7 +4,8 @@
 .home-navigator {
   position: relative;
   padding: 0 40px 0 80px;
-  width: 480px;
+  min-width: 480px;
+
   .logo {
     position: absolute;
     bottom: 80px;
@@ -33,6 +34,7 @@
       position: relative;
       color: #000;
       @include font-size(18px);
+      font-family: $spec-font-family;
       &::before {
         content: '';
         display: block;

@@ -42,6 +42,8 @@ export default class Index extends Component {
           <link rel="stylesheet" href={helper.asset('index.css')} />
           <meta name="keywords" content={config.keywords} />
           <meta name="description" content={config.description} />
+          <meta name="HandheldFriendly" content="True" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
           <meta charSet="UTF-8" />
         </head>
         <body>
@@ -52,6 +54,7 @@ export default class Index extends Component {
             }}
           />
           <script src="//cdn.bootcss.com/snap.svg/0.5.1/snap.svg-min.js" />
+          <script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js" />
           <script src={helper.asset('manifest.js')} />
           <script src={helper.asset('index.js')} />
           <script

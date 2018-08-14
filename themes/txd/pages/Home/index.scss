@@ -25,6 +25,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @include portrait {
+      left: 0;
+    }
     .social-share {
       position: absolute;
       top: 40px;
@@ -43,6 +46,7 @@
       font-size: 80px;
       font-weight: 900;
       line-height: 1.1;
+      font-family: $spec-font-family;
     }
     .more-link {
       display: inline-block;
