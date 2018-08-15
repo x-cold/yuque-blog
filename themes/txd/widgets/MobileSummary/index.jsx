@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './index.scss';
 
@@ -14,8 +15,8 @@ export default class Card extends Component {
     const style = { width: `${cardHeight}px`, height: `${cardHeight}px` };
     return (
       <div className="mobile-post-box">
-        <a
-          href={url}
+        <Link
+          to={url}
           style={style}
         >
           <div className="background-container">
@@ -32,7 +33,7 @@ export default class Card extends Component {
               </div>
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     );
   }

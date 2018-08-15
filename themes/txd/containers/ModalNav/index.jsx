@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import './index.scss';
 
@@ -12,13 +12,13 @@ function ModalNav(props) {
     const buttonActive = location.pathname === url;
     return (
       <li key={`nav-item-${url}`} className="nav-item" >
-        <a
+        <Link
           className={buttonActive && 'active' || ''}
-          href={url}
+          to={url}
           onClick={() => { props.toggleExpandedState(true); }}
         >
           {name}
-        </a>
+        </Link>
       </li>
     );
   });

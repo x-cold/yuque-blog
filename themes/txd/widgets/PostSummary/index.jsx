@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './index.scss';
 
@@ -81,9 +82,9 @@ export default class Card extends Component {
               { tagName }
             </div>
           </div>
-          <a href={url} className="background-container" style={rectStyle}>
+          <Link to={url} className="background-container" style={rectStyle}>
             <div className="background-inner" style={feature_image && { backgroundImage: `url(${feature_image})` } || {}} />
-          </a>
+          </Link>
         </div>
         <div className="intro" style={{ width: rectStyle.width }}>
           <h2 className="post-title">{title}</h2>

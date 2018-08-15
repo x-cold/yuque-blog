@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import { Link } from 'react-router-dom';
 
 import Loader from '../../widgets/Loader';
 import PostCard from '../../widgets/PostCard';
@@ -83,10 +84,10 @@ export default class HomeContent extends Component {
             <div className="total">
               {total > 9 ? total : `0${total}`}
             </div>
-            <a className="more-link" href="/blogs/">
+            <Link className="more-link" to="/blogs">
               <span>MORE</span>
               <img src="https://img.alicdn.com/tfs/TB1D1bUdv5TBuNjSspmXXaDRVXa-28-16.png" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

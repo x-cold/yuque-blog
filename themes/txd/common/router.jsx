@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import { BrowserRouter, StaticRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, StaticRouter, Switch } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import DevTool from 'mobx-react-devtools';
 
@@ -13,6 +13,7 @@ import Home from '../pages/Home';
 import Post from '../pages/Post';
 import Blog from '../pages/Blog';
 import About from '../pages/About';
+import Careers from '../pages/Careers';
 import NotFound from '../pages/404';
 
 import '../styles/site.scss';
@@ -45,9 +46,10 @@ export default (props) => {
           <Switch>
             <HomeLayout exact path="/" component={Home} />
             <BlogLayout path="/post/:slug" component={Post} />
-            <DefaultLayout path="/blogs/" component={Blog} />
-            <DefaultLayout path="/about/" component={About} />
-            <Route component={NotFound} />
+            <DefaultLayout path="/blogs" component={Blog} />
+            <DefaultLayout path="/about" component={About} />
+            <DefaultLayout path="/careers" component={Careers} />
+            <DefaultLayout component={NotFound} />
           </Switch>
         </Router>
       </Provider>

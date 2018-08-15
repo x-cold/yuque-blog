@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './index.scss';
 
@@ -14,12 +15,12 @@ export default class Card extends Component {
     const date = new Date(updated_at).toDateString();
     return (
       <div>
-        <a
+        <Link
           className="post-box"
           style={{
             ...style,
           }}
-          href={url}
+          to={url}
         >
           <div className="background-container">
             <div className="background-inner" />
@@ -36,7 +37,7 @@ export default class Card extends Component {
               </div>
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     );
   }

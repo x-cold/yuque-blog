@@ -14,7 +14,14 @@ export default class Footer extends React.Component {
     const { config } = appStore;
     const { links = [] } = config;
     return links.map(link => (
-      <a key={link.name} href={link.url}>{ link.name }</a>
+      <a
+        key={link.name}
+        href={link.url}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        { link.name }
+      </a>
     ));
   }
 

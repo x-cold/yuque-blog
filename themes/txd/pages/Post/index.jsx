@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import { Link } from 'react-router-dom';
 
 import Footer from '../../containers/Footer';
 
@@ -61,12 +62,12 @@ export default class Post extends Component {
                 style={{ width: style.width }}
                 key={`near-post-${post.slug}`}
               >
-                <a
+                <Link
                   className="background-container"
                   rel="noopener noreferrer"
                   target="_blank"
                   style={{ height: style.height }}
-                  href={`/post/${post.slug}`}
+                  to={`/post/${post.slug}`}
                 >
                   <div
                     className="background-inner"
@@ -75,7 +76,7 @@ export default class Post extends Component {
                       { backgroundImage: `url(${post.feature_image})` } || {}
                     }
                   />
-                </a>
+                </Link>
                 <h2 className="post-title">{post.title}</h2>
               </div>
             ))

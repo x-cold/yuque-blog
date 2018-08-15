@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import { Link } from 'react-router-dom';
 
 import './index.scss';
 
@@ -19,12 +20,12 @@ export default class HomeHeader extends Component {
               className="nav-item"
               key={button.url}
             >
-              <a
-                href={button.url}
+              <Link
+                to={button.url}
                 className={index === 0 && 'active' || ''}
               >
                 {button.name}
-              </a>
+              </Link>
             </li>))
           }
         </ul>
