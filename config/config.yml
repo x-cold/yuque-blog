@@ -35,10 +35,10 @@ navigators:
     url: /
   -
     name: BLOG
-    url: /blogs/
+    url: /blogs
   -
     name: ABOUT
     url: /about
   -
     name: CAREERS
-    url: https://txd.alibaba-inc.com/wangwang/intro/
+    url: /careers
