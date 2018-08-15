@@ -18,8 +18,9 @@ export default class HomeContent extends Component {
     const { posts } = postStore;
     this.state = {
       activeIndex: 0,
-      slug: 'all',
+      slug: 'All',
       curPosts: posts,
+      tocMap:{},
     };
   }
 
@@ -29,7 +30,9 @@ export default class HomeContent extends Component {
 
   fetchData() {
     const { postStore } = this.props;
-    postStore.fetchToc();
+    postStore.fetchToc().then(toc=>{
+      this.formatToc(toc);
+    });
   }
 
   renderPosts(cardHeight , posts) {
@@ -43,51 +46,58 @@ export default class HomeContent extends Component {
       index={index}
     />));
   }
-
-  updatePost(){
-    const slug = this.state.slug;
-    const { postStore ,appStore} = this.props;
-    const { posts, toc} = postStore;
-    const { curPosts }= this.state
-    if(slug === 'all' ){
-      this.setState({curPosts:posts});
-    }
+  //格式化toc为map对象
+  formatToc(toc){
     let tip = '';
     let tocMap = {};
     (toc||[]).forEach(t => {
        if(t.depth === 1) {
-          tip = t.slug
-          tocMap[t.slug] = [];
+          tip = t.title
+          tocMap[t.title] = [];
        }else{
-        tocMap[tip].push(t);
+        tocMap[tip].push(t.slug);
        }
     });
-    let newPost = [];
-    (tocMap[slug]||[]).map(t=>{newPost.push(t)});
-    this.setState({curPosts:newPost});
-
+    this.setState({tocMap: tocMap });
   }
-
-  updateSlug(data){
-    if(!data)return;
-    this.setState({slug : data });
-    this.updatePost();
+  //更新视图
+  updatePost(slug){
+    const { tocMap } =this.state;
+    const { postStore } = this.props;
+    const { posts} = postStore;
+    let newPost = [];
+    if(slug === 'All' ){
+      newPost = posts;
+    }else{
+      (posts||[]).map(post=>{
+        if(tocMap[slug].indexOf(post.slug)>-1){
+          newPost.push(post)
+        }
+      })
+    }
+    this.setState({curPosts:newPost});
+  }
+  //更新当前分类
+  updateSlug(slug){
+    if(!slug)return;
+    this.setState({slug : slug });
+    this.updatePost(slug);
   }
 
   renderTags() {
     const { postStore } = this.props;
     const { toc } = postStore;
+    const { slug } = this.state;
     let tags = (toc||[]).filter(i=>i.depth===1);
     tags.unshift({slug:'all', title:'All' });
     tags = window.isMobile ? tags.slice(0,3) : tags.slice(0,5);
-    let slug = this.state.slug;
-    return tags.map(tag => <li key={tag.slug} className={`${slug.indexOf(tag.slug) > -1 ? 'active' : ''} fadeInRight`}>
-      <a href="javascript:;" onClick={this.updateSlug.bind(this,tag.slug)}>{tag.title}</a>
+    return tags.map(tag => <li key={tag.slug} className={`${slug.indexOf(tag.title) > -1 ? 'active' : ''} fadeInRight`}>
+      <a href="javascript:;" onClick={this.updateSlug.bind(this,tag.title)}>{tag.title}</a>
     </li>);
   }
 
   render() {
-    const { postStore, appStore } = this.props;
+    const { appStore } = this.props;
     const { curPosts } = this.state;
     const { ui = {} } = appStore;
     if (!curPosts) {
