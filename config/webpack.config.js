@@ -35,9 +35,8 @@ if (!isDev) {
   });
 }
 
-console.log(workboxRuntimeCaching[1]);
-
 module.exports = (app, defaultConfig) => {
+  // For mobx decorators
   for (const loader of defaultConfig.module.rules) {
     if (loader.test.test('.jsx') && loader.test.test('.js')) {
       if (!Array.isArray(loader.use.options.plugins)) {
@@ -50,17 +49,19 @@ module.exports = (app, defaultConfig) => {
     }
   }
 
+  // For Pwa support
   defaultConfig.plugins.push(
     new WorkboxPlugin.GenerateSW({
-      cacheId: 'webpack-pwa', // 设置前缀
+      cacheId: 'webpack-pwa',
       skipWaiting: true, // 强制等待中的 Service Worker 被激活
       clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
-      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+      exclude: [
+        /\.(?:png|jpg|jpeg|svg)$/,
+      ],
       templatedUrls: {
         '/': '/',
       },
       directoryIndex: '/',
-      // Define runtime caching rules.
       runtimeCaching: workboxRuntimeCaching,
     })
   );

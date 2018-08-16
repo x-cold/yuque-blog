@@ -10,8 +10,8 @@ yuque:
 # Site
 title: 阿里巴巴 TXD 技术博客
 subtitle: 阿里巴巴 AIS 技术体验团队博客
-keywords: HTML, CSS, XML, XHTML, JavaScript, TXD
-description: 阿里巴巴 | TXD | 前端 | 前端开发 | JavaScript | React | AIS | 技术体验
+keywords: 前端开发,交互设计,视觉设计,阿里巴巴,TXD
+description: TXD（阿里巴巴基础设施体验技术团队），以“定义未来体验”为愿景，以“融合设计和技术，创造优质体验，提升产品复合价值”为使命，致力于集团全球数据中心和运维体系的数字化、自动化、智能化场景中的体验设计和前端工程体系化建设，创造高品质运维工具、打造企业级数据可视化产品等，为集团业务快速发展提供稳定、可靠、高效的服务保障。
 author: txd
 language: zh-CN
 timezone:
