@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "backend by yuque.com",
   "scripts": {
-    "start": "beidou start",
+    "start": "beidou start --daemon",
     "debug": "beidou debug",
     "stop": "beidou stop",
     "dev": "beidou dev",
