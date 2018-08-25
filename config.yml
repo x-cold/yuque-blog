@@ -1,0 +1,37 @@
+# 主题
+theme: txd
+
+# 语雀 API 设置
+yuque:
+  base: https://www.yuque.com/api/v2
+  login: yinzhi
+  repo: blog
+
+# Site
+title: 小冷的备忘录
+subtitle: 但凡能引起思考的句子，都是些好句子
+keywords: 小冷的备忘录,HTML/CSS/JAVASCRIPT,前端工程师,Angular,Ionic,Vue,React,Node.js,Powershell,Qt5
+description: 小冷的备忘录,HTML/CSS/JAVASCRIPT,前端工程师,Angular,Ionic,Vue,React,Node.js,Powershell,Qt5
+author: 小冷
+language: zh-CN
+
+# 友情链接
+links:
+  -
+    name: 阿里巴巴
+    url: https://www.alibaba.com
+  -
+    name: 阿里巴巴国际UED
+    url: http://www.aliued.com/
+  -
+    name: 阿里巴巴U一点
+    url: http://www.aliued.cn/
+
+# 导航链接
+navigators:
+  -
+    name: HOME
+    url: /
+  -
+    name: BLOG
+    url: /blogs

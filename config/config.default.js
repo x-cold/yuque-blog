@@ -6,19 +6,19 @@ const fs = require('fs');
 
 let blogConfig = {};
 
-// Get document, or throw exception on error
-try {
-  blogConfig = yaml.safeLoad(
-    fs.readFileSync(
-      path.join(__dirname, './config.yml'),
-      'utf8'
-    )
-  );
-} catch (e) {
-  console.log(e);
-}
-
 module.exports = (appInfo) => {
+  // Get document, or throw exception on error
+  try {
+    blogConfig = yaml.safeLoad(
+      fs.readFileSync(
+        path.join(appInfo.baseDir, 'config.yml'),
+        'utf8'
+      )
+    );
+  } catch (e) {
+    console.log(e);
+  }
+
   const clientViewRoot = path.join(
     appInfo.baseDir, `themes/${blogConfig.theme}`
   );
