@@ -89,6 +89,13 @@ npm start
 
 访问: http://localhost:6001/
 
+## Docker
+
+```
+$ docker build -t egg-boilerplate .
+$ docker run -p 7001:7001 egg-boilerplate
+```
+
 ## TODO
 
 - [x] 后端项目初始化
