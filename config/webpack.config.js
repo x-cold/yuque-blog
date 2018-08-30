@@ -58,10 +58,11 @@ module.exports = (app, defaultConfig) => {
       exclude: [
         /\.(?:png|jpg|jpeg|svg)$/,
       ],
-      templatedUrls: {
-        '/': '/',
-      },
-      directoryIndex: '/',
+      // 备注: 注释掉下面这两项配置是用于单页应用首页的，多页+单页的混合模式不适用
+      // templatedUrls: {
+      //   '/': '/',
+      // },
+      // directoryIndex: '/',
       runtimeCaching: workboxRuntimeCaching,
     })
   );
