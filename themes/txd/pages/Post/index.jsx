@@ -109,7 +109,9 @@ export default class Post extends Component {
         />
         <PostContent html={body_html} />
         {/* <div className="post-author">
-          <div className="author-avatar"><img src={author.profile_image || '/gw.alicdn.com/tfs/TB1DhYHf5qAXuNjy1XdXXaYcVXa-105-121.png'} /></div>
+          <div className="author-avatar">
+            <img src={author.profile_image || '/gw.alicdn.com/tfs/TB1DhYHf5qAXuNjy1XdXXaYcVXa-105-121.png'} />
+          </div>
           <div className="author-name">{author.name}</div>
           <div className="author-bio">{author.bio}</div>
         </div> */}

@@ -53,7 +53,7 @@ export default class Card extends Component {
     const { slug, title, feature_image, date, tagName, desc } = this.getSummary();
     const rectStyle = this.getReact();
     const url = `/post/${slug}`;
-    let className = this.props.className;
+    let { className } = this.props;
     if (!Array.isArray(className)) {
       className = [className];
     }
@@ -83,7 +83,10 @@ export default class Card extends Component {
             </div>
           </div>
           <Link to={url} className="background-container" style={rectStyle}>
-            <div className="background-inner" style={feature_image && { backgroundImage: `url(${feature_image})` } || {}} />
+            <div
+              className="background-inner"
+              style={feature_image && { backgroundImage: `url(${feature_image})` } || {}}
+            />
           </Link>
         </div>
         <div className="intro" style={{ width: rectStyle.width }}>
