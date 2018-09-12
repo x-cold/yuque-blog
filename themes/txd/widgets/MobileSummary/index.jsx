@@ -20,7 +20,10 @@ export default class Card extends Component {
           style={style}
         >
           <div className="background-container">
-            <div className="background-inner" style={feature_image && { backgroundImage: `url(${feature_image})` } || {}} />
+            <div
+              className="background-inner"
+              style={feature_image && { backgroundImage: `url(${feature_image})` } || {}}
+            />
           </div>
           <div className="overlay">
             <div className="intro">

@@ -14,13 +14,13 @@ import './index.scss';
 export default class HomeContent extends Component {
   constructor(props) {
     super(props);
-    const { postStore} = this.props;
+    const { postStore } = this.props;
     const { posts } = postStore;
     this.state = {
       activeIndex: 0,
       slug: 'All',
       curPosts: posts,
-      tocMap:{},
+      tocMap: {},
     };
   }
 
@@ -30,12 +30,10 @@ export default class HomeContent extends Component {
 
   fetchData() {
     const { postStore } = this.props;
-    postStore.fetchToc().then(toc=>{
-      this.formatToc(toc);
-    });
+    postStore.fetchToc().then(toc => this.formatToc(toc));
   }
 
-  renderPosts(cardHeight , posts) {
+  renderPosts(cardHeight, posts) {
     const { activeIndex } = this.state;
     return posts.map((post, index) => (<PostSummary
       className="fadeInRight"
@@ -46,41 +44,42 @@ export default class HomeContent extends Component {
       index={index}
     />));
   }
-  //格式化toc为map对象
-  formatToc(toc){
+
+  // 格式化toc为map对象
+  formatToc(toc) {
     let tip = '';
-    let tocMap = {};
-    (toc||[]).forEach(t => {
-       if(t.depth === 1) {
-          tip = t.title
-          tocMap[t.title] = [];
-       }else{
+    const tocMap = {};
+    (toc || []).forEach((t) => {
+      if (t.depth === 1) {
+        tip = t.title;
+        tocMap[t.title] = [];
+      } else {
         tocMap[tip].push(t.slug);
-       }
+      }
     });
-    this.setState({tocMap: tocMap });
+    this.setState({ tocMap });
   }
-  //更新视图
-  updatePost(slug){
-    const { tocMap } =this.state;
+
+  // 更新视图
+  updatePost(slug) {
+    const { tocMap } = this.state;
     const { postStore } = this.props;
-    const { posts} = postStore;
+    const { posts } = postStore;
     let newPost = [];
-    if(slug === 'All' ){
+    if (slug === 'All') {
       newPost = posts;
-    }else{
-      (posts||[]).map(post=>{
-        if(tocMap[slug].indexOf(post.slug)>-1){
-          newPost.push(post)
-        }
-      })
+    } else {
+      (posts || []).map(post => tocMap[slug].indexOf(post.slug) > -1 && newPost.push(post));
     }
-    this.setState({curPosts:newPost});
+    this.setState({ curPosts: newPost });
   }
-  //更新当前分类
-  updateSlug(slug){
-    if(!slug)return;
-    this.setState({slug : slug });
+
+  // 更新当前分类
+  updateSlug(slug) {
+    if (!slug) {
+      return;
+    }
+    this.setState({ slug });
     this.updatePost(slug);
   }
 
@@ -88,12 +87,13 @@ export default class HomeContent extends Component {
     const { postStore } = this.props;
     const { toc } = postStore;
     const { slug } = this.state;
-    let tags = (toc||[]).filter(i=>i.depth===1);
-    tags.unshift({slug:'all', title:'All' });
-    tags = window.isMobile ? tags.slice(0,3) : tags.slice(0,5);
-    return tags.map(tag => <li key={tag.slug} className={`${slug.indexOf(tag.title) > -1 ? 'active' : ''} fadeInRight`}>
-      <a href="javascript:;" onClick={this.updateSlug.bind(this,tag.title)}>{tag.title}</a>
-    </li>);
+    let tags = (toc || []).filter(i => i.depth === 1);
+    tags.unshift({ slug: 'all', title: 'All' });
+    tags = window.isMobile ? tags.slice(0, 3) : tags.slice(0, 5);
+    return tags.map(tag => (
+      <li key={tag.slug} className={`${slug.indexOf(tag.title) > -1 ? 'active' : ''} fadeInRight`}>
+        <a href="" onClick={this.updateSlug.bind(this, tag.title)}>{tag.title}</a>
+      </li>));
   }
 
   render() {
@@ -117,7 +117,7 @@ export default class HomeContent extends Component {
               this.renderTags()
             }
           </ul>
-          <div className="search"></div>
+          <div className="search" />
         </div>
         <div className="page-title">Blog</div>
         <HScroll
@@ -128,7 +128,7 @@ export default class HomeContent extends Component {
           }}
         >
           {
-            this.renderPosts(cardHeight,curPosts)
+            this.renderPosts(cardHeight, curPosts)
           }
         </HScroll>
       </div>
