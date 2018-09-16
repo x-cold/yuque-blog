@@ -6,17 +6,10 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const isDev = process.env.NODE_ENV === 'development';
 
 const workboxRuntimeCaching = [{
-  // Match any request ends with .png, .jpg, .jpeg or .svg.
   urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-
-  // Apply a cache-first strategy.
   handler: 'cacheFirst',
-
   options: {
-    // Use a custom cache name.
     cacheName: 'images',
-
-    // Only cache 10 images.
     expiration: {
       maxEntries: 100,
     },
@@ -28,12 +21,24 @@ if (!isDev) {
     urlPattern: /\.*/,
     handler: 'networkFirst',
   });
-} else {
-  workboxRuntimeCaching.push({
-    urlPattern: /\.*/,
-    handler: 'networkOnly',
-  });
 }
+
+const workboxPlugin = new WorkboxPlugin.GenerateSW({
+  cacheId: 'webpack-pwa',
+  skipWaiting: true, // 强制等待中的 Service Worker 被激活
+  clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
+  exclude: [
+    // /\.(?:png|jpg|jpeg|svg)$/,
+    /\.*/,
+  ],
+  chunks: [],
+  // 备注: 注释掉下面这两项配置是用于单页应用首页的，多页+单页的混合模式不适用
+  // templatedUrls: {
+  //   '/': '/',
+  // },
+  // directoryIndex: '/',
+  runtimeCaching: workboxRuntimeCaching,
+});
 
 module.exports = (app, defaultConfig) => {
   // For mobx decorators
@@ -49,31 +54,21 @@ module.exports = (app, defaultConfig) => {
     }
   }
 
-  // For Pwa support
-  defaultConfig.plugins.push(
-    new WorkboxPlugin.GenerateSW({
-      cacheId: 'webpack-pwa',
-      skipWaiting: true, // 强制等待中的 Service Worker 被激活
-      clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
-      exclude: [
-        /\.(?:png|jpg|jpeg|svg)$/,
-      ],
-      // 备注: 注释掉下面这两项配置是用于单页应用首页的，多页+单页的混合模式不适用
-      // templatedUrls: {
-      //   '/': '/',
-      // },
-      // directoryIndex: '/',
-      runtimeCaching: workboxRuntimeCaching,
-    })
-  );
-
-  defaultConfig.plugins.push(
-    new BundleAnalyzerPlugin()
-  );
-
   defaultConfig.externals = {
     Snap: 'Snap',
   };
+
+  defaultConfig.plugins.push(workboxPlugin);
+
+  // development
+  if (isDev) {
+    return defaultConfig;
+  }
+
+  // production
+  defaultConfig.plugins.push(
+    new BundleAnalyzerPlugin()
+  );
 
   return defaultConfig;
 };
