@@ -96,7 +96,8 @@ export default class Post extends Component {
     const { body_html, title, updated_at } = post;
     const style = {};
     if (window.isMobile) {
-      const { ui } = this.props;
+      const { appStore } = this.props;
+      const { ui } = appStore;
       const { windowWidth } = ui;
       style.width = `${windowWidth / 2 - 20}px`;
       style.height = style.width;
