@@ -5,6 +5,10 @@
   // inline-flex 能保证父容器宽度延伸
   display: inline-flex;
   align-content: space-between;
+  @include phone{
+    margin-top:220px;
+    margin-left:30px;
+  }
   .post-list {
     position: relative;
     // float: left;

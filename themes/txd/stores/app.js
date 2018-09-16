@@ -22,7 +22,7 @@ export default class AppStore {
   }
 
   initMobileFlag() {
-    window.isMoblie = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+    window.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
       .test(navigator.userAgent);
   }
 

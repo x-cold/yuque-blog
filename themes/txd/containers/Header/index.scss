@@ -2,6 +2,7 @@
 @import '../../styles/mixins/manifest';
 
 .header {
+  pointer-events:auto;
   background-color: $blue-transparent;
   @include standard-shadow;
   overflow: visible;

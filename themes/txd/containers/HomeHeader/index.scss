@@ -24,6 +24,36 @@
   }
 }
 
+@include phone {
+  .home-wrapper{
+    display: flex;
+  }
+  .home-navigator {
+    position: fixed;
+    padding: 0 40px 0 0;
+    z-index: 2;
+    height: 100%;
+    min-width: 100%;
+    pointer-events: none;
+    .logo {
+      position: unset;
+      margin-left: 30px;
+      margin-top: 30px;
+      width: 315px;
+      height: 80px;
+      img {
+        height: auto;
+      }
+    }
+  }
+}
+// @media only screen and (min-width: 321px) and (max-width: 1024px) {
+
+//   /* Styles */
+
+// }
+
+
 .nav-list {
   .nav-item {
     text-align: center;

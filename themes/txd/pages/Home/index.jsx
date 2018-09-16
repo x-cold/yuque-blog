@@ -15,7 +15,7 @@ export default class HomeContent extends Component {
     const { appStore, postStore } = this.props;
     const { posts } = postStore;
     const { ui } = appStore;
-    const containerHeight = ui.windowHeight - 60 - 72;
+    const containerHeight = window.isMobile?ui.windowHeight: (ui.windowHeight - 60 - 72);
     const { windowWidth } = ui;
     let showPosts;
     // 动态控制文章数量
@@ -54,7 +54,7 @@ export default class HomeContent extends Component {
         cards1
       }
       {
-        cards2
+        !window.isMobile && cards2
       }
     </div>);
   }

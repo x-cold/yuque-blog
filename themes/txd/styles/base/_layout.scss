@@ -39,6 +39,9 @@
   &::-webkit-scrollbar {
     display: none;
   }
+  @include phone{
+    display: block;
+  }
 }
 
 .full-layout-wrapper {
