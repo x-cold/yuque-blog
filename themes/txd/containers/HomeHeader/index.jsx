@@ -7,8 +7,7 @@ import CommonHeader from '../Header';
 @inject('appStore')
 @observer
 export default class HomeHeader extends Component {
-  PCHeader(props) {
-    const { navigators = [] } = props;
+  PCHeader(navigators) {
     return (
       <ul className="nav-list" >
         {
