@@ -3,7 +3,10 @@
 
 .hero {
   color: $black;
-
+  @include phone {
+    padding: 0 10px;
+  }
+  
   &__overlay {
     position: fixed;
     width: 100%;

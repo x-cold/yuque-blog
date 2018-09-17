@@ -96,6 +96,9 @@
     }
     .post-desc {
       opacity: 0;
+      @include phone {
+        opacity: 1;
+      }
     }
   }
 }

@@ -89,10 +89,10 @@ export default class HomeContent extends Component {
     const { slug } = this.state;
     let tags = (toc || []).filter(i => i.depth === 1);
     tags.unshift({ slug: 'all', title: 'All' });
-    tags = window.isMobile ? tags.slice(0, 3) : tags.slice(0, 5);
-    return tags.map(tag => (
-      <li key={tag.slug} className={`${slug.indexOf(tag.title) > -1 ? 'active' : ''} fadeInRight`}>
-        <a href="" onClick={this.updateSlug.bind(this, tag.title)}>{tag.title}</a>
+    tags = window.isMobile ? tags : tags.slice(0, 5);
+    return tags.map((tag,i) => (
+      <li key={i} className={`${slug.indexOf(tag.title) > -1 ? 'active' : ''} fadeInRight`}>
+        <a href="javascript:;" onClick={this.updateSlug.bind(this, tag.title)}>{tag.title}</a>
       </li>));
   }
 
@@ -109,10 +109,11 @@ export default class HomeContent extends Component {
     // 动态计算卡片高 (宽等值)
     const containerHeight = window.isMobile ? ui.windowHeight - 50 : ui.windowHeight - 30 - 30 - 70;
     const cardHeight = window.isMobile ? (ui.windowWidth - 72 - 12) : (containerHeight - 70) / 2.5;
+    const navWidth=  ui.windowWidth - 70;
     return (
       <div className="common-page">
         <div className="search-bar">
-          <ul className="filter-list">
+          <ul className="filter-list" style={{width: `${navWidth}px`}}>
             {
               this.renderTags()
             }

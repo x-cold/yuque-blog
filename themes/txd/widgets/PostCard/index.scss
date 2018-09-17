@@ -40,6 +40,9 @@
     @include portrait {
       transform: translateY(0);
     }
+    @include phone{
+      top:60%;
+    }
   }
   .intro {
     position: relative;
@@ -55,6 +58,9 @@
       position: absolute;
       top: 0px;
       left: 0px;
+      @include phone{
+        transform: translateX(-20%) skewX(-45deg);
+      }
     }
     margin: 0 auto;
     color: #efefef;
@@ -66,6 +72,9 @@
       transform: translateY(-10px);
       transition: all 0.25s ease;
       transition-delay: 0.1s;
+      @include phone{
+        opacity: 1;
+      }
     }
   }
   .post-title {

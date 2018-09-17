@@ -98,12 +98,12 @@ export default class Post extends Component {
     if (window.isMobile) {
       const { appStore } = this.props;
       const { ui } = appStore;
-      const { windowWidth } = ui;
-      style.width = `${windowWidth / 2 - 20}px`;
-      style.height = style.width;
+      const { windowHeight } = ui;
+      style.height = `${windowHeight - 50}px`;
+      //style.height = style.width;
     }
     return (
-      <section className="post">
+      <section className="post" style={{height: style.height }}>
         <PostMeta
           title={title}
           updated_at={updated_at}

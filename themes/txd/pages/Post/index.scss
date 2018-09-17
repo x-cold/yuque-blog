@@ -2,6 +2,9 @@
 @import '../../styles/mixins/manifest';
 
 .post {
+  @include phone{
+    overflow-y: auto;
+  }
   .post-author {
     margin: 0 24px;
     padding: 60px 0;

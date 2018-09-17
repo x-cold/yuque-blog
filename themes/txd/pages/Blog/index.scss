@@ -51,6 +51,11 @@
   }
   .filter-list {
     min-width: 320px;
+    white-space: nowrap;
+    @include phone{
+      min-width: 70px;
+      overflow-x: auto;
+    }
     @include portrait {
       width: 200px;
     }
