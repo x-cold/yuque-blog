@@ -6,13 +6,16 @@
   display: inline-flex;
   align-content: space-between;
   @include phone{
-    margin-top:220px;
+    margin-top:60%;
     margin-left:30px;
   }
   .post-list {
     position: relative;
     // float: left;
     padding: 40px 0 32px;
+    @include phone{
+      display: inline-flex;
+    }
     .post-row {
       display: flex;
       &:nth-child(2) {
@@ -32,10 +35,20 @@
     @include portrait {
       left: 0;
     }
+    @include phone {
+      flex-direction: row-reverse;
+      padding: 40px 0 32px;
+      margin-left: 5px;
+    }
     .social-share {
       position: absolute;
       top: 40px;
       right: 4px;
+      @include phone{
+        position: initial;
+        display: flex;
+        justify-content: space-around;
+      }
       .social-item {
         width: 24px;
         height: 24px;
@@ -45,20 +58,37 @@
       padding-bottom: 140px;
       color: #dcdee3;
       text-align: center;
+      @include phone {
+        padding-bottom: 0px;
+        background-color: #F2F3F7;
+      }
     }
     .total {
       font-size: 80px;
       font-weight: 900;
       line-height: 1.1;
       font-family: $spec-font-family;
+      @include phone{
+        display: none;
+      }
     }
     .more-link {
       display: inline-block;
       opacity: 1;
+      @include phone{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       span {
         font-family: 'PT Sans';
         font-size: 20px;
         color: rgb(195, 209, 230);
+        @include phone{
+          color:#000;
+        }
       }
       img {
         display: inline-block;
