@@ -47,11 +47,24 @@
       @include phone{
         position: initial;
         display: flex;
-        justify-content: space-around;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
       }
       .social-item {
         width: 24px;
         height: 24px;
+      }
+    }
+    .friend-links{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      .link-item{
+        @include phone{
+          color: rgb(195, 209, 230);
+        }
       }
     }
     .more-guide {

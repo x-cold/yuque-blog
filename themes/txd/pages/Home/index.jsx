@@ -62,12 +62,14 @@ export default class HomeContent extends Component {
   renderReadMore() {
     const { appStore, postStore } = this.props;
     const { posts } = postStore;
-    const { ui } = appStore;
+    const { ui , config } = appStore;
     const { windowWidth } = ui;
+    const {links} = config;
     const cardHeight = windowWidth - 60;
     const total = posts.length || 0;
     const isMobile = window.isMobile;
     let cls = {};
+    let mapper = link=>(<a class="link-item" href={link.url}>{link.name}</a>)
     if (isMobile) {
       cls = {
         height: `${cardHeight}px`,
@@ -82,6 +84,7 @@ export default class HomeContent extends Component {
         <div className="social-item">
           <img src="https://img.alicdn.com/tfs/TB16h_2dx9YBuNjy0FfXXXIsVXa-46-38.png" />
         </div>
+        {isMobile&&<div className="friend-links">{links.map(mapper)}</div>}
       </div>
       <div className="more-guide" style={cls}>
         <div className="total">
