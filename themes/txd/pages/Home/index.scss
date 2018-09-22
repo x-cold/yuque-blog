@@ -35,7 +35,6 @@
       left: 0;
     }
     @include phone {
-      flex-direction: row-reverse;
       padding: 40px 0 32px;
       margin-left: 5px;
     }
@@ -44,27 +43,34 @@
       top: 40px;
       right: 4px;
       @include phone{
-        padding: 0 20px;
+        height: 100%;
+        padding: 40px 20px 0;
         position: initial;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
+        width: 320px;
+        text-align: center;
       }
       .social-item {
         width: 24px;
         height: 24px;
       }
+      .copyright p {
+        font-size: 12px;
+        color: $gray-font-color;
+      }
     }
-    .friend-links{
+    .friend-links {
       display: flex;
       justify-content: space-around;
       align-items: center;
       flex-direction: column;
       width: 100%;
-      .link-item{
+      .link-item {
         @include phone{
           font-size: 12px;
-          color: #666;
+          color: $normal-font-color;
         }
       }
     }
@@ -100,7 +106,7 @@
         font-size: 20px;
         color: #dcdee3;
         @include phone{
-          color:#666;
+          color: $gray-font-color;
         }
       }
       img {

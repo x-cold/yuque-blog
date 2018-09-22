@@ -19,7 +19,7 @@ export default class HomeContent extends Component {
     const { windowWidth } = ui;
     let showPosts;
     // 动态控制文章数量
-    if (windowWidth < 1440) {
+    if (windowWidth < 1440 && !window.isMobile) {
       showPosts = posts.slice(0, 4);
     } else {
       showPosts = posts.slice(0, 6);
@@ -66,7 +66,7 @@ export default class HomeContent extends Component {
     const { links } = config;
     const total = posts.length || 0;
     const { isMobile } = window;
-    const mapper = link => (<a className="link-item" href={link.url}>{link.name}</a>);
+    const mapper = link => (<a className="link-item" href={link.url} key={`friends-link-${link.url}`}>{link.name}</a>);
 
     return (
       <div className="read-more">
@@ -77,7 +77,14 @@ export default class HomeContent extends Component {
           <div className="social-item">
             <img src="https://img.alicdn.com/tfs/TB16h_2dx9YBuNjy0FfXXXIsVXa-46-38.png" />
           </div>
-          {isMobile && <div className="friend-links">{links.map(mapper)}</div>}
+          {
+            isMobile && <div className="friend-links">{links.map(mapper)}</div>
+          }
+          {
+            isMobile && <div className="copyright">
+              <p>Copyright © 1999 - 2018 Alibaba Inc. All Rights Reserved.</p>
+            </div>
+        }
         </div>
         <div className="more-guide">
           <div className="total">
