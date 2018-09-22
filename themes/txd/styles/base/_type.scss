@@ -24,7 +24,6 @@ li {
   font-size: 1rem;
 
   @include bp-w(600px) {
-    // font-size: 1.4rem;
     font-size: 1.2em;
   }
 
@@ -32,7 +31,6 @@ li {
     font-size: 1rem;
 
     @include bp-w(600px) {
-      // font-size: 1.4rem;
       font-size: 1.2rem;
     }
   }
@@ -54,20 +52,17 @@ code {
 }
 
 h1 {
-  // font-size: 2.8rem;
   font-size: 2.2rem;
   margin-top: 35px;
   margin-bottom: 15px;
 }
 
 h2 {
-  // font-size: 2rem;
   font-size: 1.7rem;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
 h3 {
-  // font-size: 1.8rem;
   font-size: 1.5rem;
 }

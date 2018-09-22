@@ -8,6 +8,9 @@ export default class AppStore {
   @observable
   config = {};
 
+  @observable
+  isMobile = false;
+
   setUI() {
     this.ui.windowWidth = window.innerWidth;
     this.ui.windowHeight = window.innerHeight;
@@ -21,26 +24,29 @@ export default class AppStore {
     }
   }
 
-  initMobileFlag() {
-    window.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-      .test(navigator.userAgent);
-  }
-
   initDefaultUI() {
     domReady(this.setUI.bind(this));
     window.addEventListener('resize', this.setUI.bind(this));
+  }
+
+  setMoblie() {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+      .test(navigator.userAgent);
+    this.isMobile = isMobile;
+    window.isMobile = this.isMobile;
   }
 
   // Only run in client
   listenWindow() {
     this.initDefaultUI();
     this.initFastClick();
-    this.initMobileFlag();
+    this.setMoblie();
   }
 
-  static fromJS({ config }) {
+  static fromJS({ config, isMobile }) {
     const appStore = new AppStore();
     appStore.config = config;
+    appStore.isMobile = isMobile;
     return appStore;
   }
 }

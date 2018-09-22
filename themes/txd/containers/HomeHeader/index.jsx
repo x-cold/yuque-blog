@@ -17,23 +17,26 @@ export default class HomeHeader extends Component {
           >
             <Link
               to={button.url}
-              className={index === 0 && 'active' || ''}
+              className={index === 0 ? 'active' : ''}
             >
               {button.name}
             </Link>
           </li>))
         }
       </ul>
-    )
+    );
   }
+
   MoblieHeader() {
-    return <CommonHeader></CommonHeader>
+    return <CommonHeader />;
   }
+
   render() {
     const { appStore } = this.props;
     const { config = {} } = appStore;
     const { navigators = [] } = config;
-    const isMobile = window.isMobile;
+    const { isMobile } = window;
+
     return (
       <div className="home-navigator">
         { isMobile ? this.MoblieHeader() : this.PCHeader(navigators)}

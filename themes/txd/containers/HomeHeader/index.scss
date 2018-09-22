@@ -62,8 +62,7 @@
     a {
       opacity: 1;
       position: relative;
-      color: #000;
-      @include font-size(18px);
+      font-size: 18px;
       font-family: $spec-font-family;
       &::before {
         content: '';
@@ -76,7 +75,7 @@
         width: 0;
         height: 0;
         border-top: 3px solid transparent;
-        border-left: 9px solid #555;
+        border-left: 9px solid #666;
         border-bottom: 3px solid transparent;
         opacity: 0;
         transform: translateX(-100%);

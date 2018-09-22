@@ -22,3 +22,7 @@ $color-palette: (
 @function get-palette($index: 1) {
   @return nth($color-palette, $index);
 }
+
+$black-font-color: #333;
+$normal-font-color: #666;
+$gray-font-color: #999;

@@ -10,15 +10,6 @@
   border-right: none;
   -webkit-overflow-scrolling: touch;
 
-  &__clear-header {
-    padding-top: $header-height;
-  }
-
-  &__content {
-    width: 100%;
-    height: 100%;
-  }
-
   @include portrait {
     border: none;
   }

@@ -62,40 +62,34 @@ export default class HomeContent extends Component {
   renderReadMore() {
     const { appStore, postStore } = this.props;
     const { posts } = postStore;
-    const { ui , config } = appStore;
-    const { windowWidth } = ui;
-    const {links} = config;
-    const cardHeight = windowWidth - 60;
+    const { config } = appStore;
+    const { links } = config;
     const total = posts.length || 0;
-    const isMobile = window.isMobile;
-    let cls = {};
-    let mapper = link=>(<a class="link-item" href={link.url}>{link.name}</a>)
-    if (isMobile) {
-      cls = {
-        height: `${cardHeight}px`,
-        width: `${cardHeight}px`,
-      }
-    }
-    return (<div className="read-more">
-      <div className="social-share" style={cls}>
-        <div className="social-item" >
-          <img src="https://img.alicdn.com/tfs/TB1fpDuduuSBuNjSsplXXbe8pXa-48-38.png" />
+    const { isMobile } = window;
+    const mapper = link => (<a className="link-item" href={link.url}>{link.name}</a>);
+
+    return (
+      <div className="read-more">
+        <div className="social-share">
+          <div className="social-item" >
+            <img src="https://img.alicdn.com/tfs/TB1fpDuduuSBuNjSsplXXbe8pXa-48-38.png" />
+          </div>
+          <div className="social-item">
+            <img src="https://img.alicdn.com/tfs/TB16h_2dx9YBuNjy0FfXXXIsVXa-46-38.png" />
+          </div>
+          {isMobile && <div className="friend-links">{links.map(mapper)}</div>}
         </div>
-        <div className="social-item">
-          <img src="https://img.alicdn.com/tfs/TB16h_2dx9YBuNjy0FfXXXIsVXa-46-38.png" />
+        <div className="more-guide">
+          <div className="total">
+            {total > 9 ? total : `0${total}`}
+          </div>
+          <Link className="more-link" to="/blogs">
+            <span>{isMobile ? 'READ MORE' : 'MORE'}</span>
+            <img src="https://img.alicdn.com/tfs/TB1D1bUdv5TBuNjSspmXXaDRVXa-28-16.png" />
+          </Link>
         </div>
-        {isMobile&&<div className="friend-links">{links.map(mapper)}</div>}
       </div>
-      <div className="more-guide" style={cls}>
-        <div className="total">
-          {total > 9 ? total : `0${total}`}
-        </div>
-        <Link className="more-link" to="/blogs">
-          <span>{isMobile? 'READ MORE':'MORE'}</span>
-          <img src="https://img.alicdn.com/tfs/TB1D1bUdv5TBuNjSspmXXaDRVXa-28-16.png" />
-        </Link>
-      </div>
-    </div>);
+    );
   }
 
   render() {

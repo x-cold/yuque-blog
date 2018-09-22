@@ -11,7 +11,6 @@
   }
   .post-list {
     position: relative;
-    // float: left;
     padding: 40px 0 32px;
     @include phone{
       display: inline-flex;
@@ -45,6 +44,7 @@
       top: 40px;
       right: 4px;
       @include phone{
+        padding: 0 20px;
         position: initial;
         display: flex;
         flex-wrap: wrap;
@@ -63,7 +63,8 @@
       width: 100%;
       .link-item{
         @include phone{
-          color: rgb(195, 209, 230);
+          font-size: 12px;
+          color: #666;
         }
       }
     }
@@ -73,7 +74,6 @@
       text-align: center;
       @include phone {
         padding-bottom: 0px;
-        background-color: #F2F3F7;
       }
     }
     .total {
@@ -98,9 +98,9 @@
       span {
         font-family: 'PT Sans';
         font-size: 20px;
-        color: rgb(195, 209, 230);
+        color: #dcdee3;
         @include phone{
-          color:#000;
+          color:#666;
         }
       }
       img {

@@ -8,13 +8,13 @@ import './pages/Home/index.scss';
 export default class Index extends Component {
   static getPartial(props) {
     const { ctx, store } = props;
-    const { posts, post, config } = store;
+    const { posts, post, config, isMobile = false } = store;
     return {
       html: <IndexRouter
         context={{}}
         location={ctx.req.url}
         postStore={{ posts, post }}
-        appStore={{ config, ui: {} }}
+        appStore={{ config, ui: {}, isMobile }}
       />,
     };
   }
@@ -34,33 +34,34 @@ export default class Index extends Component {
 
   render() {
     const { props } = this;
-    const { html, helper, state, config } = props;
+    const { html, helper, state, config = {}, post = {} } = props;
     return (
       <html>
         <head>
-          <title>{config.title || 'TXD 技术博客'}</title>
-          <link rel="stylesheet" href={helper.asset('index.css')} />
+          <title>{config.title || 'Untitled'}</title>
           <meta name="keywords" content={config.keywords} />
-          <meta name="description" content={config.description} />
+          <meta name="description" content={post.description || config.description} />
           <meta name="HandheldFriendly" content="True" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
           <meta charSet="UTF-8" />
+          <link rel="stylesheet" href={helper.asset('index.css')} />
         </head>
         <body>
           <div id="container" dangerouslySetInnerHTML={{ __html: html }} />
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.initialState = ${state}`,
+              __html: `
+              window.initialState = ${state};
+            `,
             }}
           />
-          <script src="//cdn.bootcss.com/snap.svg/0.5.1/snap.svg-min.js" />
           <script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js" />
+          <script src="//cdn.bootcss.com/snap.svg/0.5.1/snap.svg-min.js" />
           <script src={helper.asset('manifest.js')} />
           <script src={helper.asset('index.js')} />
           <script
             dangerouslySetInnerHTML={{
               __html: `
-              // Check that service workers are registered
               if ('serviceWorker' in navigator) {
                 // Use the window load event to keep the page load performant
                 window.addEventListener('load', () => {
@@ -68,7 +69,8 @@ export default class Index extends Component {
                     .serviceWorker
                     .register('/service-worker.js', {scope: '/'});
                 });
-              }`,
+              }
+              `,
             }}
           />
         </body>
