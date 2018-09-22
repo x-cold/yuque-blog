@@ -49,10 +49,10 @@
         font-weight: bold;
       }
       h1 {
-        font-size: 40px;
+        font-size: 32px;
       }
       h2 {
-        font-size: 32px;
+        font-size: 26px;
       }
       .date {
         font-size: 16px;
@@ -66,7 +66,7 @@
     left: 25px;
     font-weight: bold;
     color: $black;
-    @include font-size(64px);
+    font-size: 64px;
 
     @include bp-w(768px) {
       left: calc(50% - #{768px / 2});

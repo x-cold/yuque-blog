@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('assert');
+const md = require('../util/md');
 const { Service } = require('egg');
 
 module.exports = (app) => {
@@ -23,8 +24,19 @@ module.exports = (app) => {
     }
 
     async getArticleDetail(slug) {
+      const data = await this.getArticleDetailRaw(slug);
+      try {
+        const article = data.data;
+        article.body_html = md.render(article.body);
+      } catch (error) {
+        // do noting
+      }
+      return data;
+    }
+
+    async getArticleDetailRaw(slug) {
       const { ctx } = this;
-      const api = `${API_HOST}/repos/${namespace}/docs/${slug}`;
+      const api = `${API_HOST}/repos/${namespace}/docs/${slug}?raw=true`;
       const result = await ctx.curl(api, {
         dataType: 'json',
       });

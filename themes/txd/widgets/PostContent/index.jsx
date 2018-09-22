@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './index.scss';
+import '../../styles/markdown.scss';
 
 export default function Static(props) {
   const { html } = props;
@@ -9,7 +10,7 @@ export default function Static(props) {
   }
   return (
     <div
-      className="static typo typo-bi"
+      className="static markdown-body"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
