@@ -94,16 +94,8 @@ export default class Post extends Component {
       return <Loader />;
     }
     const { body_html, title, updated_at } = post;
-    const style = {};
-    if (window.isMobile) {
-      const { appStore } = this.props;
-      const { ui } = appStore;
-      const { windowHeight } = ui;
-      style.height = `${windowHeight - 50}px`;
-      //style.height = style.width;
-    }
     return (
-      <section className="post" style={{height: style.height }}>
+      <section className="post-page">
         <PostMeta
           title={title}
           updated_at={updated_at}

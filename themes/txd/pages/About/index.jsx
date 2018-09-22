@@ -60,7 +60,7 @@ class About extends Component {
     const imgHeight = backgroundHeight - 80;
 
     return (<HScroll
-      className="page-container about-us"
+      className="horizontal-container about-us"
       style={{
         height: `${backgroundHeight}px`,
         width: `${ui.windowWidth - (window.isMobile ? 72 : 90 + 30)}px`,
@@ -113,10 +113,12 @@ class About extends Component {
 }
 
 export default function Con(props) {
-  return (<div className="common-page">
-    <div className="page-title">
-      About us
+  return (
+    <div className="common-page about-page">
+      <div className="page-title">
+        About us
+      </div>
+      <About {...props} />
     </div>
-    <About {...props} />
-  </div>);
+  );
 }

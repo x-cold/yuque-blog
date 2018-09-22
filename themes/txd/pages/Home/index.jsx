@@ -99,7 +99,7 @@ export default class HomeContent extends Component {
       return <Loader />;
     }
     return (
-      <div className="home-container">
+      <div className="home-page">
         {
           this.renderPosts()
         }

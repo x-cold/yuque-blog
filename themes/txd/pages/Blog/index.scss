@@ -1,101 +1,71 @@
 @import '../../styles/variables/manifest';
 @import '../../styles/mixins/manifest';
 
-.common-page {
-  display: flex;
-  .page-title {
-    font-size: 80px;
-    font-weight: 600;
-    line-height: 1;
-    color: #e9ebf3;
-    writing-mode: vertical-lr;
+.blog-page {
+  .blog-post-list {
+    display: flex;
+    align-items: flex-end;
+    padding: 74px 40px 0;
     @include portrait {
-      padding-top: 24px;
-      font-size: 72px;
+      padding-left: 0;
     }
   }
-}
-
-.page-container {
-  overflow-y: hidden;
-  overflow-x: visible;
-  width: 100%;
-  height: 100%;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.blog-post-list {
-  display: flex;
-  align-items: flex-end;
-  padding: 74px 40px 0;
-  @include portrait {
-    padding-left: 0;
-  }
-}
-
-.search-bar {
-  z-index: 100;
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 120px;
-  @include portrait {
-    left: 70px;
-  }
-  a {
-    font-size: 18px;
-    color: #333;
-    opacity: 1;
-  }
-  .filter-list {
-    min-width: 320px;
-    white-space: nowrap;
-    @include phone{
-      min-width: 70px;
+  
+  .search-bar {
+    z-index: 100;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 120px;
+    width: calc(100% - 120px);
+    @include portrait {
+      left: 70px;
+      width: calc(100% - 70px);
+    }
+    @include phone {
       overflow-x: auto;
     }
-    @include portrait {
-      width: 200px;
-    }
-    display: flex;
-    li {
-      position: relative;
-      a {
-        display: inline-block;
-        padding: 22px 30px;
-        @include portrait {
-          padding: 22px 18px;
+    .filter-list {
+      display: flex;
+      white-space: nowrap;
+      li {
+        position: relative;
+        > span {
+          display: inline-block;
+          padding: 22px 30px;
+          cursor: pointer;
+          @include portrait {
+            padding: 22px 18px;
+          }
         }
-      }
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 16px;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: 0;
-        height: 0;
-        border-top: 3px solid transparent;
-        border-left: 9px solid #555;
-        border-bottom: 3px solid transparent;
-        transform: translateX(-100%);
-        transition: all .3s;
-        opacity: 0;
-        @include portrait {
-          left: 8px;
-        }
-      }
-      &:hover,
-      &.active {
         &::before {
-          opacity: 1;
-          transform: translateX(0);
+          content: '';
+          display: block;
+          position: absolute;
+          left: 16px;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          width: 0;
+          height: 0;
+          border-top: 3px solid transparent;
+          border-left: 9px solid #555;
+          border-bottom: 3px solid transparent;
+          transform: translateX(-100%);
+          transition: all .3s;
+          opacity: 0;
+          @include portrait {
+            left: 8px;
+          }
+        }
+        &:hover,
+        &.active {
+          &::before {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
       }
     }
-  }
+  }  
 }

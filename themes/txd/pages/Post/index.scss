@@ -1,10 +1,7 @@
 @import '../../styles/variables/manifest';
 @import '../../styles/mixins/manifest';
 
-.post {
-  @include phone{
-    overflow-y: auto;
-  }
+.post-page {
   .post-author {
     margin: 0 24px;
     padding: 60px 0;

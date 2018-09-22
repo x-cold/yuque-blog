@@ -1,15 +1,13 @@
 @import '../mixins/manifest';
 
-* {
-  font-family: $default-font-family;
-  font-weight: normal;
-}
-
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   font-family: $default-font-family;
+  color: $black-font-color;
 }
 
 p,
@@ -22,14 +20,7 @@ p,
 a,
 li {
   font-size: 1rem;
-
-  @include bp-w(600px) {
-    font-size: 1.2em;
-  }
-
   code {
-    font-size: 1rem;
-
     @include bp-w(600px) {
       font-size: 1.2rem;
     }
