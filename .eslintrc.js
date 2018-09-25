@@ -8,10 +8,6 @@ module.exports = {
     'no-template-curly-in-string': 0,
     'react/no-danger': 0,
     'react/prop-types': 0,
-    'no-mixed-operators': 0,
-    'max-len': [
-      'error',
-      { "code": 120 }
-    ]
+    'no-mixed-operators': 0
   },
 };
