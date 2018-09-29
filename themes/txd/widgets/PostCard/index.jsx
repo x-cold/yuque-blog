@@ -5,7 +5,7 @@ import './index.scss';
 
 export default class Card extends Component {
   render() {
-    const { post, style } = this.props;
+    const { post, style, img } = this.props;
     if (!post) {
       return null;
     }
@@ -13,6 +13,9 @@ export default class Card extends Component {
     const url = `/post/${slug}`;
     const tagName = tags[0] && tags[0].name || '-';
     const date = new Date(updated_at).toDateString();
+    const cls = {
+      backgroundImage: `url('${img}')`,
+    };
     return (
       <div>
         <Link
@@ -23,7 +26,7 @@ export default class Card extends Component {
           to={url}
         >
           <div className="background-container">
-            <div className="background-inner" />
+            <div className="background-inner" style={cls} />
           </div>
           <div className="overlay">
             <div className="intro">

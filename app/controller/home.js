@@ -14,7 +14,9 @@ module.exports = (app) => {
       const userAgent = ctx.get('User-Agent');
       const isMobile = !!userAgent && mobileRegx.test(userAgent);
       const posts = await ctx.service.yuque.getArticleList();
+      const imgs = await ctx.service.bing.getImgs();
       await ctx.render('index', {
+        imgs: imgs.images,
         posts: posts.data,
         config: blogConfig,
         isMobile,

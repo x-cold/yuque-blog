@@ -8,12 +8,12 @@ import './pages/Home/index.scss';
 export default class Index extends Component {
   static getPartial(props) {
     const { ctx, store } = props;
-    const { posts, post, config, isMobile = false } = store;
+    const { posts, post, config, imgs, isMobile = false } = store;
     return {
       html: <IndexRouter
         context={{}}
         location={ctx.req.url}
-        postStore={{ posts, post }}
+        postStore={{ posts, post, imgs }}
         appStore={{ config, ui: {}, isMobile }}
       />,
     };
@@ -23,11 +23,12 @@ export default class Index extends Component {
    * construct store for server side
    */
   static getStore(props) {
-    const { posts = [], post = {}, config = {} } = props;
+    const { posts = [], post = {}, config = {}, imgs = [] } = props;
     const store = {
       posts,
       post,
       config,
+      imgs,
     };
     return store;
   }

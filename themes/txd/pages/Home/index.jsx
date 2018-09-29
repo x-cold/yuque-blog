@@ -13,7 +13,7 @@ import './index.scss';
 export default class HomeContent extends Component {
   renderPosts() {
     const { appStore, postStore } = this.props;
-    const { posts } = postStore;
+    const { posts, imgs } = postStore;
     const { ui } = appStore;
     const containerHeight = ui.windowHeight - 60 - 72;
     const { windowWidth } = ui;
@@ -29,14 +29,20 @@ export default class HomeContent extends Component {
     // 两行布局
     const col1 = showPosts.filter((p, index) => index % 2 === 0);
     const col2 = showPosts.filter((p, index) => index % 2 !== 0);
-    const mapper = post => (<PostCard
-      key={post.slug}
-      post={post}
-      style={{
-        height: `${cardHeight}px`,
-        width: `${cardHeight}px`,
-      }}
-    />);
+    const mapper = (post) => {
+      const rand = Math.floor(Math.random() * 8);
+      const img = imgs[rand];
+      const img_url = `//cn.bing.com/${img.urlbase}_800x600.jpg`;
+      return (<PostCard
+        key={post.slug}
+        post={post}
+        style={{
+          height: `${cardHeight}px`,
+          width: `${cardHeight}px`,
+        }}
+        img={img_url}
+      />);
+    };
     const cards1 = (<div className="post-row">
       {
         col1.map(mapper)
@@ -84,7 +90,7 @@ export default class HomeContent extends Component {
             isMobile && <div className="copyright">
               <p>Copyright © 1999 - 2018 Alibaba Inc. All Rights Reserved.</p>
             </div>
-        }
+          }
         </div>
         <div className="more-guide">
           <div className="total">

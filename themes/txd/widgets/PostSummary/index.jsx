@@ -25,8 +25,9 @@ export default class Card extends Component {
   }
 
   getSummary() {
-    const { post } = this.props;
-    const { slug, tags = [], feature_image, title, updated_at, description } = post;
+    const { post, img } = this.props;
+    const { slug, tags = [], title, updated_at, description } = post;
+    const feature_image = img;
     const tagName = tags[0] && tags[0].name || '-';
     const date = new Date(updated_at)
       .toDateString()
