@@ -11,28 +11,17 @@ import './index.scss';
 @inject('postStore')
 @observer
 export default class HomeContent extends Component {
-  renderPosts() {
-    const { appStore, postStore } = this.props;
-    const { posts, imgs } = postStore;
-    const { ui } = appStore;
-    const containerHeight = ui.windowHeight - 60 - 72;
-    const { windowWidth } = ui;
-    let showPosts;
-    // 动态控制文章数量
-    if (windowWidth < 1440 && !window.isMobile) {
-      showPosts = posts.slice(0, 4);
-    } else {
-      showPosts = posts.slice(0, 6);
-    }
-    // 动态计算卡片高 (宽等值)
-    const cardHeight = window.isMobile ? (windowWidth - 60) : ((containerHeight - 32) / 2);
-    // 两行布局
-    const col1 = showPosts.filter((p, index) => index % 2 === 0);
-    const col2 = showPosts.filter((p, index) => index % 2 !== 0);
-    const mapper = (post) => {
-      const rand = Math.floor(Math.random() * 8);
+  renderRow(posts, cardHeight) {
+    const { postStore } = this.props;
+    const { imgs } = postStore;
+    const len = imgs.length;
+    const firstIndex = Math.floor(Math.random() * len);
+    const mapper = (post, index) => {
+      const rand = Math.abs((index - firstIndex) % len);
       const img = imgs[rand];
-      const img_url = `//cn.bing.com/${img.urlbase}_800x600.jpg`;
+      const img_url = img ?
+        `//cn.bing.com/${img.urlbase}_800x600.jpg` :
+        '//gw.alicdn.com/tfs/TB1ZRXdpb_I8KJjy1XaXXbsxpXa-618-614.png';
       return (<PostCard
         key={post.slug}
         post={post}
@@ -43,24 +32,43 @@ export default class HomeContent extends Component {
         img={img_url}
       />);
     };
-    const cards1 = (<div className="post-row">
-      {
-        col1.map(mapper)
-      }
-    </div>);
-    const cards2 = (<div className="post-row">
-      {
-        col2.map(mapper)
-      }
-    </div>);
+    return (
+      <div className="post-row">
+        {
+          posts.map(mapper)
+        }
+      </div>
+    );
+  }
+
+  renderPosts() {
+    const { appStore, postStore } = this.props;
+    const { posts } = postStore;
+    const { ui } = appStore;
+    const { windowWidth } = ui;
+    const containerHeight = ui.windowHeight - 60 - 72;
+    // 动态计算卡片高 (宽等值)
+    const cardHeight = window.isMobile ?
+      (windowWidth - 60) : ((containerHeight - 32) / 2);
+
+    let showPosts;
+    // 动态控制文章数量
+    if (windowWidth < 1440 && !window.isMobile) {
+      showPosts = posts.slice(0, 4);
+    } else {
+      showPosts = posts.slice(0, 6);
+    }
+    // 两行布局
+    const col1Posts = showPosts.filter((p, index) => index % 2 === 0);
+    const col2Posts = showPosts.filter((p, index) => index % 2 !== 0);
     return (<div
       className="post-list"
     >
       {
-        cards1
+        this.renderRow(col1Posts, cardHeight)
       }
       {
-        cards2
+        this.renderRow(col2Posts, cardHeight)
       }
     </div>);
   }
@@ -72,16 +80,28 @@ export default class HomeContent extends Component {
     const { links } = config;
     const total = posts.length || 0;
     const { isMobile } = window;
-    const mapper = link => (<a className="link-item" href={link.url} key={`friends-link-${link.url}`}>{link.name}</a>);
+    const mapper = link => (
+      <a
+        className="link-item"
+        href={link.url}
+        key={`friends-link-${link.url}`}
+      >
+        {link.name}
+      </a>
+    );
 
     return (
       <div className="read-more">
         <div className="social-share">
           <div className="social-item" >
-            <img src="https://img.alicdn.com/tfs/TB1fpDuduuSBuNjSsplXXbe8pXa-48-38.png" />
+            <img
+              src="//img.alicdn.com/tfs/TB1fpDuduuSBuNjSsplXXbe8pXa-48-38.png"
+            />
           </div>
           <div className="social-item">
-            <img src="https://img.alicdn.com/tfs/TB16h_2dx9YBuNjy0FfXXXIsVXa-46-38.png" />
+            <img
+              src="//img.alicdn.com/tfs/TB16h_2dx9YBuNjy0FfXXXIsVXa-46-38.png"
+            />
           </div>
           {
             isMobile && <div className="friend-links">{links.map(mapper)}</div>
@@ -98,7 +118,9 @@ export default class HomeContent extends Component {
           </div>
           <Link className="more-link" to="/blogs">
             <span>{isMobile ? 'READ MORE' : 'MORE'}</span>
-            <img src="https://img.alicdn.com/tfs/TB1D1bUdv5TBuNjSspmXXaDRVXa-28-16.png" />
+            <img
+              src="//img.alicdn.com/tfs/TB1D1bUdv5TBuNjSspmXXaDRVXa-28-16.png"
+            />
           </Link>
         </div>
       </div>

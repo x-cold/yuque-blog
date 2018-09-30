@@ -38,8 +38,10 @@ export default class HomeContent extends Component {
     const { activeIndex } = this.state;
     const { postStore } = this.props;
     const { imgs } = postStore;
+    const len = imgs.length;
+    const firstIndex = Math.floor(Math.random() * len);
     return posts.map((post, index) => {
-      const rand = Math.floor(Math.random() * 8);
+      const rand = Math.abs((index - firstIndex) % len);
       const img = imgs[rand];
       const img_url = `//cn.bing.com/${img.urlbase}_800x600.jpg`;
       return (<PostSummary
@@ -50,8 +52,7 @@ export default class HomeContent extends Component {
         cardHeight={cardHeight}
         index={index}
         img={img_url}
-      />
-      );
+      />);
     });
   }
 
@@ -124,9 +125,14 @@ export default class HomeContent extends Component {
         </div>
       );
     }
+    const { isMobile } = window;
     // 动态计算卡片高 (宽等值)
-    const containerHeight = window.isMobile ? ui.windowHeight - 50 : ui.windowHeight - 30 - 30 - 70;
-    const cardHeight = window.isMobile ? (ui.windowWidth - 72 - 12) : (containerHeight - 70) / 2.5;
+    const containerHeight = isMobile ?
+      ui.windowHeight - 50 :
+      ui.windowHeight - 30 - 30 - 70;
+    const cardHeight = isMobile ?
+      (ui.windowWidth - 72 - 12) :
+      (containerHeight - 70) / 2.5;
     return (
       <div className="common-page blog-page">
         <div className="page-title">Blog</div>
