@@ -21,6 +21,13 @@ class YuqueController extends Controller {
     const result = await ctx.service.yuque.getArticleToc();
     ctx.body = result;
   }
+
+  async getUser() {
+    const { ctx } = this;
+    const { id } = ctx.params;
+    const result = await ctx.service.yuque.getUser(id);
+    ctx.body = result;
+  }
 }
 
 module.exports = YuqueController;

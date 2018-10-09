@@ -14,3 +14,8 @@ export const getToc = () => {
   const api = '/api/yuque/ariticleToc';
   return axios.get(api).then(res => res.data.data);
 };
+
+export const getUser = (id) => {
+  const api = `/api/yuque/user/${id}`;
+  return axios.get(api).then(res => res.data.data);
+};

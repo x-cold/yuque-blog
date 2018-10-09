@@ -21,7 +21,9 @@ export default class Post extends Component {
   fetchData() {
     const { match, postStore } = this.props;
     const { slug } = match.params;
-    postStore.fetchPost(slug);
+    postStore.fetchPost(slug).then((post) => {
+      postStore.fetchUser(post.user_id);
+    });
     postStore.fetchPosts();
   }
 
@@ -90,6 +92,7 @@ export default class Post extends Component {
     const { postStore, match } = this.props;
     const { slug } = match.params;
     const post = postStore.post[slug];
+    const { user } = postStore;
     if (!post) {
       return <Loader />;
     }
@@ -101,13 +104,13 @@ export default class Post extends Component {
           updated_at={updated_at}
         />
         <PostContent html={body_html} />
-        {/* <div className="post-author">
+        <div className="post-author">
           <div className="author-avatar">
-            <img src={author.profile_image || '/gw.alicdn.com/tfs/TB1DhYHf5qAXuNjy1XdXXaYcVXa-105-121.png'} />
+            <img src={user.avatar_url || '//gw.alicdn.com/tfs/TB1DhYHf5qAXuNjy1XdXXaYcVXa-105-121.png'} />
           </div>
-          <div className="author-name">{author.name}</div>
-          <div className="author-bio">{author.bio}</div>
-        </div> */}
+          <div className="author-name">{user.name}</div>
+          {/* <div className="author-bio">{author.bio}</div> */}
+        </div>
         {
           this.renderNearPost()
         }

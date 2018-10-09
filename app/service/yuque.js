@@ -51,6 +51,15 @@ module.exports = (app) => {
       });
       return result.data;
     }
+
+    async getUser(id) {
+      const { ctx } = this;
+      const api = `${API_HOST}/users/${id}`;
+      const result = await ctx.curl(api, {
+        dataType: 'json',
+      });
+      return result.data;
+    }
   }
   return YuqueService;
 };
