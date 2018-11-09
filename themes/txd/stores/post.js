@@ -1,6 +1,5 @@
 import { observable, action } from 'mobx';
 import { getList, getDetail, getToc, getUser } from '../services/yuque';
-import { getImgs } from '../services/bing';
 
 export default class PostStore {
   @observable
@@ -11,9 +10,6 @@ export default class PostStore {
 
   @observable
   toc = []; // 文章目录
-
-  @observable
-  imgs = []; // 封面图
 
   @observable
   user = {}; // 文章作者
@@ -47,15 +43,6 @@ export default class PostStore {
   }
 
   @action
-  fetchImgs() {
-    return getImgs()
-      .then((imgs) => {
-        this.imgs = imgs;
-        return imgs;
-      });
-  }
-
-  @action
   fetchUser(id) {
     return getUser(id)
       .then((user) => {
@@ -69,14 +56,12 @@ export default class PostStore {
       post: this.post,
       posts: this.posts,
       toc: this.toc,
-      imgs: this.imgs,
     };
   }
 
-  static fromJS({ posts, post, imgs }) {
+  static fromJS({ posts, post }) {
     const postStore = new PostStore();
     postStore.posts = Array.isArray(posts) ? posts : [];
-    postStore.imgs = Array.isArray(imgs) ? imgs : [];
     if (post) {
       postStore.post[post.slug] = post;
     }

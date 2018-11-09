@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 
 import './index.scss';
 
+function formatIndex(index) {
+  return index > 8 ? index + 1 : `0${index + 1}`;
+}
+
 export default class Card extends Component {
-  getReact() {
+  getReactStyle() {
     const { cardHeight, active } = this.props;
     if (window.isMobile) {
       return {
@@ -24,37 +28,36 @@ export default class Card extends Component {
     };
   }
 
+  getMainStyle(rectStyle) {
+    const { cardHeight } = this.props;
+    const mainHeight = cardHeight * (window.isMobile ? 1.3 : 1.7);
+    const mainStyle = { width: rectStyle.width, height: `${mainHeight}px` };
+    return mainStyle;
+  }
+
   getSummary() {
-    const { post, img } = this.props;
-    const { slug, tags = [], title, updated_at, description } = post;
-    const feature_image = img;
+    const { post } = this.props;
+    const { slug, tags = [], title, updated_at, description, thumb } = post;
     const tagName = tags[0] && tags[0].name || '-';
     const date = new Date(updated_at)
       .toDateString()
       .replace(/ \w+/, '');
+    const url = `/post/${slug}`;
     return {
+      url,
       slug,
       tagName,
       date,
-      feature_image,
+      thumb,
       title,
       desc: description,
     };
   }
 
-  render() {
-    const { post, active, cardHeight } = this.props;
-    if (!post) {
-      return null;
-    }
-
-    let { index } = this.props;
-    index = index > 8 ? index + 1 : `0${index + 1}`;
-
-    const { slug, title, feature_image, date, tagName, desc } = this.getSummary();
-    const rectStyle = this.getReact();
-    const url = `/post/${slug}`;
+  getSummaryClassName() {
+    const { active } = this.props;
     let { className } = this.props;
+
     if (!Array.isArray(className)) {
       className = [className];
     }
@@ -66,15 +69,37 @@ export default class Card extends Component {
       className.push('normal');
     }
 
-    const mainHeight = cardHeight * (window.isMobile ? 1.3 : 1.7);
+    return ['post-summary', ...className].join(' ');
+  }
+
+  render() {
+    const { post, index } = this.props;
+    if (!post) {
+      return null;
+    }
+
+    const {
+      url,
+      title,
+      thumb,
+      date,
+      tagName,
+      desc,
+    } = this.getSummary();
+    const rectStyle = this.getReactStyle();
+    const mainStyle = this.getMainStyle(rectStyle);
+
     return (
       <div
-        className={['post-summary', ...className].join(' ')}
+        className={this.getSummaryClassName()}
       >
-        <div className="post-main" style={{ width: rectStyle.width, height: `${mainHeight}px` }}>
+        <div
+          className="post-main"
+          style={mainStyle}
+        >
           <div className="post-meta">
             <div className="post-index">
-              { index }
+              { formatIndex(index) }
             </div>
             <div className="post-date">
               { date }
@@ -86,7 +111,7 @@ export default class Card extends Component {
           <Link to={url} className="background-container" style={rectStyle}>
             <div
               className="background-inner"
-              style={feature_image && { backgroundImage: `url(${feature_image})` } || {}}
+              style={thumb && { backgroundImage: `url(${thumb})` } || {}}
             />
           </Link>
         </div>

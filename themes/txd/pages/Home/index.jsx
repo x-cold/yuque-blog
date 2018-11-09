@@ -12,26 +12,17 @@ import './index.scss';
 @observer
 export default class HomeContent extends Component {
   renderRow(posts, cardHeight) {
-    const { postStore } = this.props;
-    const { imgs } = postStore;
-    const len = imgs.length;
-    const firstIndex = Math.floor(Math.random() * len);
-    const mapper = (post, index) => {
-      const rand = Math.abs((index - firstIndex) % len);
-      const img = imgs[rand];
-      const img_url = img ?
-        `//cn.bing.com/${img.urlbase}_800x600.jpg` :
-        '//gw.alicdn.com/tfs/TB1ZRXdpb_I8KJjy1XaXXbsxpXa-618-614.png';
-      return (<PostCard
+    const mapper = post => (
+      <PostCard
         key={post.slug}
         post={post}
         style={{
           height: `${cardHeight}px`,
           width: `${cardHeight}px`,
         }}
-        img={img_url}
-      />);
-    };
+        img={post.thumb}
+      />
+    );
     return (
       <div className="post-row">
         {

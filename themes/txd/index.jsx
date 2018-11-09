@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import IndexRouter from './common/router';
@@ -8,12 +6,12 @@ import './pages/Home/index.scss';
 export default class Index extends Component {
   static getPartial(props) {
     const { ctx, store } = props;
-    const { posts, post, config, imgs, isMobile = false } = store;
+    const { posts, post, config, isMobile = false } = store;
     return {
       html: <IndexRouter
         context={{}}
         location={ctx.req.url}
-        postStore={{ posts, post, imgs }}
+        postStore={{ posts, post }}
         appStore={{ config, ui: {}, isMobile }}
       />,
     };
@@ -23,12 +21,11 @@ export default class Index extends Component {
    * construct store for server side
    */
   static getStore(props) {
-    const { posts = [], post = {}, config = {}, imgs = [] } = props;
+    const { posts = [], post = {}, config = {} } = props;
     const store = {
       posts,
       post,
       config,
-      imgs,
     };
     return store;
   }

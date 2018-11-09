@@ -36,24 +36,16 @@ export default class HomeContent extends Component {
 
   renderPosts(cardHeight, posts) {
     const { activeIndex } = this.state;
-    const { postStore } = this.props;
-    const { imgs } = postStore;
-    const len = imgs.length;
-    const firstIndex = Math.floor(Math.random() * len);
-    return posts.map((post, index) => {
-      const rand = Math.abs((index - firstIndex) % len);
-      const img = imgs[rand];
-      const img_url = `//cn.bing.com/${img.urlbase}_800x600.jpg`;
-      return (<PostSummary
+    return posts.map((post, index) => (
+      <PostSummary
         className="fadeInRight"
+        index={index}
         active={index === activeIndex}
         key={post.slug}
         post={post}
         cardHeight={cardHeight}
-        index={index}
-        img={img_url}
-      />);
-    });
+      />
+    ));
   }
 
   // 格式化toc为map对象

@@ -5,16 +5,16 @@ import './index.scss';
 
 export default class Card extends Component {
   render() {
-    const { post, style, img } = this.props;
+    const { post, style } = this.props;
     if (!post) {
       return null;
     }
-    const { slug, tags = [], title, updated_at } = post;
+    const { slug, tags = [], title, updated_at, thumb } = post;
     const url = `/post/${slug}`;
     const tagName = tags[0] && tags[0].name || '-';
     const date = new Date(updated_at).toDateString();
     const cls = {
-      backgroundImage: `url('${img}')`,
+      backgroundImage: `url('${thumb}')`,
     };
     return (
       <div>
