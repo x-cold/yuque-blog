@@ -20,7 +20,6 @@ export default class HomeContent extends Component {
           height: `${cardHeight}px`,
           width: `${cardHeight}px`,
         }}
-        img={post.thumb}
       />
     );
     return (

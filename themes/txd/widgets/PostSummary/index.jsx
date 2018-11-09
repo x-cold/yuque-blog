@@ -37,7 +37,10 @@ export default class Card extends Component {
 
   getSummary() {
     const { post } = this.props;
-    const { slug, tags = [], title, updated_at, description, thumb } = post;
+    const { slug, tags = [], title, updated_at, description } = post;
+    let { thumb } = post;
+    thumb = thumb ||
+      '//gw.alicdn.com/tfs/TB1ZRXdpb_I8KJjy1XaXXbsxpXa-618-614.png';
     const tagName = tags[0] && tags[0].name || '-';
     const date = new Date(updated_at)
       .toDateString()
@@ -111,7 +114,7 @@ export default class Card extends Component {
           <Link to={url} className="background-container" style={rectStyle}>
             <div
               className="background-inner"
-              style={thumb && { backgroundImage: `url(${thumb})` } || {}}
+              style={{ backgroundImage: `url(${thumb})` }}
             />
           </Link>
         </div>

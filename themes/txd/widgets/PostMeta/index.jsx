@@ -18,7 +18,7 @@ class Hero extends PureComponent {
           </div>
         </div>
         {/* <div className='hero-image'>
-          <img src={feature_image}/>
+          <img src={thumb}/>
         </div> */}
       </div>
     );

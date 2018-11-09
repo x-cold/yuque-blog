@@ -9,7 +9,10 @@ export default class Card extends Component {
     if (!post) {
       return null;
     }
-    const { slug, tags = [], title, updated_at, thumb } = post;
+    const { slug, tags = [], title, updated_at } = post;
+    let { thumb } = post;
+    thumb = thumb ||
+      '//gw.alicdn.com/tfs/TB1ZRXdpb_I8KJjy1XaXXbsxpXa-618-614.png';
     const url = `/post/${slug}`;
     const tagName = tags[0] && tags[0].name || '-';
     const date = new Date(updated_at).toDateString();

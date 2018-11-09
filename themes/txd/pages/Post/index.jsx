@@ -73,10 +73,9 @@ export default class Post extends Component {
                 >
                   <div
                     className="background-inner"
-                    style={
-                      post.feature_image &&
-                      { backgroundImage: `url(${post.feature_image})` } || {}
-                    }
+                    style={{
+                      backgroundImage: `url(${post.thumb || '//gw.alicdn.com/tfs/TB1ZRXdpb_I8KJjy1XaXXbsxpXa-618-614.png'})`,
+                    }}
                   />
                 </Link>
                 <h2 className="post-title">{post.title}</h2>
