@@ -34,7 +34,7 @@ export default class Post extends Component {
     const { slug } = match.params;
 
     const style = {};
-    if (window.isMobile) {
+    if (window.mobileMode) {
       const { windowWidth } = ui;
       style.width = `${windowWidth / 2 - 20}px`;
       style.height = style.width;

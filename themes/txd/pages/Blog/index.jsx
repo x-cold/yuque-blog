@@ -92,7 +92,7 @@ export default class HomeContent extends Component {
     const { slug } = this.state;
     let tags = (toc || []).filter(i => i.depth === 1);
     tags.unshift({ slug: 'all', title: 'All' });
-    tags = window.isMobile ? tags : tags.slice(0, 5);
+    tags = window.mobileMode ? tags : tags.slice(0, 5);
 
     return tags.map(tag => (
       <li
@@ -117,12 +117,12 @@ export default class HomeContent extends Component {
         </div>
       );
     }
-    const { isMobile } = window;
+    const { mobileMode } = window;
     // 动态计算卡片高 (宽等值)
-    const containerHeight = isMobile ?
+    const containerHeight = mobileMode ?
       ui.windowHeight - 50 :
       ui.windowHeight - 30 - 30 - 70;
-    const cardHeight = isMobile ?
+    const cardHeight = mobileMode ?
       (ui.windowWidth - 72 - 12) :
       (containerHeight - 70) / 2.5;
     return (

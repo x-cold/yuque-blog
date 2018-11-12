@@ -38,12 +38,12 @@ export default class HomeContent extends Component {
     const { windowWidth } = ui;
     const containerHeight = ui.windowHeight - 60 - 72;
     // 动态计算卡片高 (宽等值)
-    const cardHeight = window.isMobile ?
+    const cardHeight = window.mobileMode ?
       (windowWidth - 60) : ((containerHeight - 32) / 2);
 
     let showPosts;
     // 动态控制文章数量
-    if (windowWidth < 1440 && !window.isMobile) {
+    if (windowWidth < 1440 && !window.mobileMode) {
       showPosts = posts.slice(0, 4);
     } else {
       showPosts = posts.slice(0, 6);
@@ -69,7 +69,7 @@ export default class HomeContent extends Component {
     const { config } = appStore;
     const { links } = config;
     const total = posts.length || 0;
-    const { isMobile } = window;
+    const { mobileMode } = window;
     const mapper = link => (
       <a
         className="link-item"
@@ -94,10 +94,10 @@ export default class HomeContent extends Component {
             />
           </div>
           {
-            isMobile && <div className="friend-links">{links.map(mapper)}</div>
+            mobileMode && <div className="friend-links">{links.map(mapper)}</div>
           }
           {
-            isMobile && <div className="copyright">
+            mobileMode && <div className="copyright">
               <p>Copyright © 1999 - 2018 Alibaba Inc. All Rights Reserved.</p>
             </div>
           }
@@ -107,7 +107,7 @@ export default class HomeContent extends Component {
             {total > 9 ? total : `0${total}`}
           </div>
           <Link className="more-link" to="/blogs">
-            <span>{isMobile ? 'READ MORE' : 'MORE'}</span>
+            <span>{mobileMode ? 'READ MORE' : 'MORE'}</span>
             <img
               src="//img.alicdn.com/tfs/TB1D1bUdv5TBuNjSspmXXaDRVXa-28-16.png"
             />

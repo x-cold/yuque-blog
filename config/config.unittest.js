@@ -1,8 +1,11 @@
 'use strict';
 
-module.exports = () => ({
-  view: {
-    defaultViewEngine: 'react',
-    defaultExtension: '.jsx',
-  },
-});
+module.exports = () => {
+  const config = {
+    view: {
+      defaultViewEngine: 'react',
+      defaultExtension: '.jsx',
+    },
+  };
+  return config;
+};

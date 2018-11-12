@@ -10,7 +10,7 @@ function formatIndex(index) {
 export default class Card extends Component {
   getReactStyle() {
     const { cardHeight, active } = this.props;
-    if (window.isMobile) {
+    if (window.mobileMode) {
       return {
         height: `${cardHeight}px`,
         width: `${cardHeight}px`,
@@ -30,7 +30,7 @@ export default class Card extends Component {
 
   getMainStyle(rectStyle) {
     const { cardHeight } = this.props;
-    const mainHeight = cardHeight * (window.isMobile ? 1.3 : 1.7);
+    const mainHeight = cardHeight * (window.mobileMode ? 1.3 : 1.7);
     const mainStyle = { width: rectStyle.width, height: `${mainHeight}px` };
     return mainStyle;
   }
@@ -64,11 +64,11 @@ export default class Card extends Component {
     if (!Array.isArray(className)) {
       className = [className];
     }
-    if (active && !window.isMobile) {
+    if (active && !window.mobileMode) {
       className.push('active');
     }
 
-    if (!active && !window.isMobile) {
+    if (!active && !window.mobileMode) {
       className.push('normal');
     }
 

@@ -56,14 +56,14 @@ class About extends Component {
   render() {
     const { appStore } = this.props;
     const { ui = {} } = appStore;
-    const backgroundHeight = ui.windowHeight - 70 - (window.isMobile ? 0 : 30) - (ui.windowWidth < 768 ? 0 : 30);
+    const backgroundHeight = ui.windowHeight - 70 - (window.mobileMode ? 0 : 30) - (ui.windowWidth < 768 ? 0 : 30);
     const imgHeight = backgroundHeight - 80;
 
     return (<HScroll
       className="horizontal-container about-us"
       style={{
         height: `${backgroundHeight}px`,
-        width: `${ui.windowWidth - (window.isMobile ? 72 : 90 + 30)}px`,
+        width: `${ui.windowWidth - (window.mobileMode ? 72 : 90 + 30)}px`,
       }}
     >
       <div className="introduction">

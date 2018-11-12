@@ -1,12 +1,11 @@
 'use strict';
 
 const path = require('path');
-const yaml = require('js-yaml');
 const fs = require('fs');
-
-let blogConfig = {};
+const yaml = require('js-yaml');
 
 module.exports = (appInfo) => {
+  let blogConfig = {};
   // Get document, or throw exception on error
   try {
     blogConfig = yaml.safeLoad(
@@ -16,18 +15,15 @@ module.exports = (appInfo) => {
       )
     );
   } catch (e) {
-    console.log(e);
+    console.error(e.message);
+    process.exit(-1);
   }
-
   const clientViewRoot = path.join(
     appInfo.baseDir, `themes/${blogConfig.theme}`
   );
   const serverViewRoot = path.join(appInfo.baseDir, '/app/view');
-  return {
+  const config = {
     keys: 'key',
-    static: {
-      maxAge: 0,
-    },
     client: clientViewRoot,
     view: {
       defaultExtension: '.jsx',
@@ -50,4 +46,5 @@ module.exports = (appInfo) => {
     },
     blog: blogConfig,
   };
+  return config;
 };

@@ -4,8 +4,8 @@ import './index.scss';
 
 export default class Footer extends Component {
   render() {
-    const { isMobile } = window;
-    if (isMobile) {
+    const { mobileMode } = window;
+    if (mobileMode) {
       return null;
     }
     return (

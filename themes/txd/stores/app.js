@@ -1,6 +1,8 @@
 import { observable } from 'mobx';
 import domReady from 'domready';
 
+const mobileUserAgentRegx =
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/;
 export default class AppStore {
   @observable
   ui = {};
@@ -9,7 +11,7 @@ export default class AppStore {
   config = {};
 
   @observable
-  isMobile = false;
+  mobileMode = false;
 
   setUI() {
     this.ui.windowWidth = window.innerWidth;
@@ -30,10 +32,10 @@ export default class AppStore {
   }
 
   setMoblie() {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+    const mobileMode = mobileUserAgentRegx
       .test(navigator.userAgent);
-    this.isMobile = isMobile;
-    window.isMobile = this.isMobile;
+    this.mobileMode = mobileMode;
+    window.mobileMode = this.mobileMode;
   }
 
   // Only run in client
@@ -43,10 +45,10 @@ export default class AppStore {
     this.setMoblie();
   }
 
-  static fromJS({ config, isMobile }) {
+  static fromJS({ config, mobileMode }) {
     const appStore = new AppStore();
     appStore.config = config;
-    appStore.isMobile = isMobile;
+    appStore.mobileMode = mobileMode;
     return appStore;
   }
 }

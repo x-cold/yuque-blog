@@ -35,11 +35,11 @@ export default class HomeHeader extends Component {
     const { appStore } = this.props;
     const { config = {} } = appStore;
     const { navigators = [] } = config;
-    const { isMobile } = window;
+    const { mobileMode } = window;
 
     return (
       <div className="home-navigator">
-        { isMobile ? this.MoblieHeader() : this.PCHeader(navigators)}
+        { mobileMode ? this.MoblieHeader() : this.PCHeader(navigators)}
         <div className="logo">
           <img
             src="//img.alicdn.com/tfs/TB1vc_JdpuWBuNjSspnXXX1NVXa-718-186.png"
