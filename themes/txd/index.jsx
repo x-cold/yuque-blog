@@ -49,7 +49,7 @@ export default class Main extends Component {
           />
         }
         <script dangerouslySetInnerHTML={{
-          __html: `<script>
+          __html: `
             if ('addEventListener' in document) {
               document.addEventListener('DOMContentLoaded', function() {
                 FastClick.attach(document.body);
@@ -58,7 +58,6 @@ export default class Main extends Component {
             if(!window.Promise) {
               document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
             }
-            </script>
           `,
         }}
         />
