@@ -51,6 +51,7 @@ module.exports = (app) => {
         article = lodash.pick(article, [
           'id',
           'slug',
+          'title',
           'book_id',
           'user_id',
           'format',
