@@ -12,7 +12,9 @@
     "lint": "eslint --fix --ext .jsx,.js client",
     "lint:style": "stylelint \"clent/**/*.scss\" --syntax scss",
     "prettier": "prettier --write './client/**/**/**/*.{js,json,scss,css}' '*.js'",
-    "test": "egg-bin test"
+    "test": "egg-bin test",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
@@ -51,10 +53,12 @@
     "prop-types": "^15.6.2",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "snyk": "^1.189.0"
   },
   "engines": {
     "node": ">= 8.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "snyk": true
 }
