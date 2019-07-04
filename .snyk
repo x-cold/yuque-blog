@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.3
+version: v1.13.5
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -15,3 +15,132 @@ patch:
         patched: '2019-05-07T06:30:57.562Z'
     - beidou-core > beidou-webpack > less > request > hawk > cryptiles > boom > hoek:
         patched: '2019-05-07T06:30:57.562Z'
+  SNYK-JS-LODASH-450202:
+    - beidou-core > beidou-webpack > babel-preset-beidou-client > @babel/core > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > snyk-config > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > inquirer > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > webpack-manifest-plugin > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > @babel/core > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > @babel/core > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-server > @babel/core > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-client > @babel/core > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-client > @babel/core > @babel/traverse > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-server > @babel/core > @babel/generator > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > @babel/core > @babel/traverse > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > @babel/core > @babel/traverse > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-server > @babel/core > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > babel-preset-beidou-server > @babel/core > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-client > @babel/core > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-client > @babel/core > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-server > @babel/core > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > babel-preset-beidou-server > @babel/core > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-client > @babel/core > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > @babel/core > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > @babel/core > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-server > @babel/core > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-server > @babel/core > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > babel-preset-beidou-server > @babel/core > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > @babel/core > @babel/helpers > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > @babel/core > @babel/helpers > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-server > @babel/core > @babel/helpers > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-client > @babel/core > @babel/helpers > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-server > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-server > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-client > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > @babel/core > @babel/helpers > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > @babel/core > @babel/helpers > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > babel-preset-beidou-server > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-client > @babel/preset-env > @babel/plugin-transform-object-super > @babel/helper-replace-supers > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-server > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > babel-preset-beidou-server > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-client > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-client > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-simple-access > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-server > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-server > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > babel-preset-beidou-server > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-client > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-server > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-client > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-server > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-client > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > babel-preset-beidou-server > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-client > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > babel-preset-beidou-server > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-server > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-isomorphic > babel-preset-beidou-server > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
+    - beidou-core > beidou-webpack > babel-preset-beidou-client > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T07:06:10.803Z'
