@@ -144,3 +144,24 @@ patch:
         patched: '2019-07-04T07:06:10.803Z'
     - beidou-core > beidou-webpack > babel-preset-beidou-client > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
         patched: '2019-07-04T07:06:10.803Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - beidou-cli > urllib > proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T06:32:57.804Z'
+    - beidou-cli > urllib > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T06:32:57.804Z'
+    - beidou-cli > npm-updater > urllib > proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T06:32:57.804Z'
+    - beidou-core > egg > urllib > proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T06:32:57.804Z'
+    - beidou-cli > npm-updater > urllib > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T06:32:57.804Z'
+    - beidou-core > egg > urllib > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T06:32:57.804Z'
+    - beidou-cli > egg-bin > autod > urllib > proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T06:32:57.804Z'
+    - beidou-cli > egg-bin > inspector-proxy > urllib > proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T06:32:57.804Z'
+    - beidou-cli > egg-bin > autod > urllib > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T06:32:57.804Z'
+    - beidou-cli > egg-bin > inspector-proxy > urllib > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T06:32:57.804Z'
