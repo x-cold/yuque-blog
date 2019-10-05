@@ -54,7 +54,7 @@
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-router-dom": "^4.3.1",
-    "snyk": "^1.189.0"
+    "snyk": "^1.231.0"
   },
   "engines": {
     "node": ">= 8.0.0"
