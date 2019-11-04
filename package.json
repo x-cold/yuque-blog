@@ -28,7 +28,7 @@
     "prettier": "^1.14.0",
     "stylelint": "^9.4.0",
     "stylelint-config-prettier": "^4.0.0",
-    "webpack-bundle-analyzer": "^2.13.1"
+    "webpack-bundle-analyzer": "^3.6.0"
   },
   "dependencies": {
     "axios": "^0.18.0",
