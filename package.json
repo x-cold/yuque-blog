@@ -37,7 +37,7 @@
     "beidou-core": "^2.0.0",
     "classnames": "^2.2.6",
     "domready": "^1.0.8",
-    "highlight.js": "^9.12.0",
+    "highlight.js": "^10.4.1",
     "js-yaml": "^3.12.0",
     "markdown-it": "^10.0.0",
     "markdown-it-footnote": "^3.0.1",
