@@ -43,7 +43,7 @@
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-github-preamble": "^1.0.0",
     "markdown-it-katex": "^2.0.3",
-    "marked": "^1.1.1",
+    "marked": "^2.0.0",
     "mobx": "^5.0.3",
     "mobx-devtools": "^0.9.18",
     "mobx-react": "^5.2.3",
