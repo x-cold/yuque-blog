@@ -33,7 +33,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
-    "beidou-cli": "^1.0.5",
+    "beidou-cli": "^2.1.1",
     "beidou-core": "^2.0.0",
     "classnames": "^2.2.6",
     "domready": "^1.0.8",
