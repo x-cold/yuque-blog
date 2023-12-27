@@ -31,7 +31,7 @@
     "webpack-bundle-analyzer": "^3.6.0"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.6.3",
     "babel-polyfill": "^6.26.0",
     "beidou-cli": "^1.0.5",
     "beidou-core": "^2.0.0",
