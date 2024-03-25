@@ -39,7 +39,7 @@
     "domready": "^1.0.8",
     "highlight.js": "^10.4.1",
     "js-yaml": "^3.12.0",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^13.0.2",
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-github-preamble": "^1.0.0",
     "markdown-it-katex": "^2.0.3",
